@@ -1,0 +1,85 @@
+/*
+  Primary: #2E294E - purple
+  #4f337d - light purple
+  #808080 - grey
+  Mood: Professional yet creative.
+  */
+
+
+/*Animation Rules*/
+@keyframes intro{
+    from{ background-color: black;}
+    to{background-color: #2E294E;}
+}
+@keyframes introText{
+    from {color: black; }
+    to {color: white; }
+}
+@keyframes introSubtext{
+    from {color: black; }
+    to {color: 808080; }
+}
+
+body{
+    background-color: #FBFBFF;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+h1{
+    color: white;
+
+}
+h2{
+    color: #808080;
+}
+
+.center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottomCenter{
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.full-purple{
+    display: block;
+    background-color: #2E294E;
+    min-height: 100vh;
+    position: relative;
+}
+
+.full-grey{
+    display: block;
+    background-color: #402965;
+    min-height: 100vh;
+    position: relative;
+}
+
+.centerText{
+    text-align: center;
+}
+
+
+#splash{
+    animation-name: intro;
+    animation-duration: 4s;
+}
+
+#title{
+    animation-name: introText;
+    animation-duration: 4s;
+    font-size: 60px;
+}
+#subtitle{
+    animation-name: introSubtext;
+    animation-duration: 4s;
+}
