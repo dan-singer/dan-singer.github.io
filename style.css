@@ -34,7 +34,7 @@ h2{
     color: #808080;
 }
 
-.center{
+.center-hv{
     margin: 0;
     position: absolute;
     top: 50%;
@@ -50,6 +50,11 @@ h2{
     transform: translate(-50%, -100%);
 }
 
+.center-h{
+    margin: auto;
+    text-align: center;
+}
+
 .full-purple{
     display: block;
     background-color: #2E294E;
@@ -62,12 +67,30 @@ h2{
     background-color: #402965;
     min-height: 100vh;
     position: relative;
+    background: linear-gradient(#2E294E, #402965);
 }
 
 .centerText{
     text-align: center;
 }
 
+.row.half{
+    min-height: 50vh;
+}
+.row.half .col-md-6{
+    min-height: 50vh;
+}
+
+.skill{
+}
+
+.skill-front{
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+.skill-front:hover{
+    opacity: .5;
+}
 
 #splash{
     animation-name: intro;
