@@ -34,6 +34,10 @@ h2{
     color: #808080;
 }
 
+ul{
+
+}
+
 .center-hv{
     margin: 0;
     position: absolute;
@@ -90,6 +94,11 @@ h2{
 }
 .skill-front:hover{
     opacity: .5;
+}
+
+.skill-content{
+    background-color: #2E294E;
+    padding: 10px;
 }
 
 #splash{
