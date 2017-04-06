@@ -34,7 +34,10 @@ h2{
     color: #808080;
 }
 
-ul{
+img{
+    width: 50%;
+    height:auto;
+    border: 10px solid black;
 
 }
 
@@ -66,12 +69,20 @@ ul{
     position: relative;
 }
 
-.full-grey{
+.full-purple-to-grey{
     display: block;
     background-color: #402965;
     min-height: 100vh;
     position: relative;
     background: linear-gradient(#2E294E, #402965);
+}
+
+.full-grey-to-purple{
+    display: block;
+    background-color: #402965;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(#402965, #2E294E);
 }
 
 .centerText{
@@ -99,6 +110,15 @@ ul{
 .skill-content{
     background-color: #2E294E;
     padding: 10px;
+}
+
+.description{
+    line-height: 135%;
+    color: white;
+    width: 50%;
+    background-color: #2E294E;
+    margin:auto;
+    padding:10px
 }
 
 #splash{
