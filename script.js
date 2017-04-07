@@ -1,6 +1,7 @@
 var canSwitch = true;
 
 $(document).ready(function(){
+
     $(".skill-content").hide();
 
     $(".skill-front").click(function(){

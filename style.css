@@ -20,6 +20,15 @@
     to {color: 808080; }
 }
 
+
+/* Rules for icon sizes: */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; } /* Default */
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-64 {font-size: 64px;}
+
+
 body{
     background-color: #FBFBFF;
     font-family: "Open Sans", sans-serif;
@@ -39,6 +48,19 @@ img{
     height:auto;
     border: 10px solid black;
 
+}
+
+a{
+    color: #cb7b32;
+    text-decoration: none;
+}
+a:hover{
+    color: #b57031;
+    text-decoration: none;
+}
+a:visited{
+    color: #cb7b32;
+    text-decoration: none;
 }
 
 .center-hv{
@@ -96,14 +118,11 @@ img{
     min-height: 50vh;
 }
 
-.skill{
-}
-
-.skill-front{
+.skill-front, .icon, img{
     opacity: 1;
     transition: opacity .5s ease-in-out;
 }
-.skill-front:hover{
+.skill-front:hover, .icon:hover, img:hover{
     opacity: .5;
 }
 
@@ -116,10 +135,17 @@ img{
     line-height: 135%;
     color: white;
     width: 50%;
-    background-color: #2E294E;
     margin:auto;
     padding:10px
 }
+
+.footer{
+    display: block;
+
+    position: relative;
+    background-color: #2E294E;
+}
+
 
 #splash{
     animation-name: intro;
