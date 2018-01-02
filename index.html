@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width initial-scale=1"/>
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <!--Custom JS-->
+        <script src="scripts/main.js"></script>
         <!--FontAwesome-->
         <script src="https://use.fontawesome.com/341493bd26.js"></script>
         <title>Dan Singer</title>
@@ -11,9 +15,18 @@
     <body>
         <header>
             <nav>
-                <a href="#splash">Home</a>
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <div>
+                        <a href="#splash">Home</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#about">About</a>
+                    </div>
+                </div>
             </nav>
         </header>
 
@@ -30,8 +43,15 @@
                 <div class="built-with"> 
                     <p>Built with</p>
                     <ul>
-                        <li>Unity</li>
                         <li>C#</li>
+                        <li>Unity</li>
+                    </ul>
+                </div>
+                <div class="features">
+                    <p>Features</p>
+                    <ul>
+                        <li>CSV audio file parsing</li>
+                        <li>Component-based Architecture</li>
                     </ul>
                 </div>
                 <div class="contributors">
@@ -44,15 +64,16 @@
             </div>
         </section>
 
-        <section id="about">
-            <section id="contact">
+        <footer>
+            <div id="contact">
                 <a href="docs/dan-singer-resume.pdf" title="Resume"><i class="fa fa-list fa-4x"></i></a>
                 <a href="https://linkedin.com/in/dan-singer-513909137/" title="LinkedIn"><i class="fa fa-linkedin fa-fw fa-4x"></i></a>              
-                <a class="text-center d-block" href="#" onclick="window.open('mailto:djs5435@g.rit.edu');" title="Email"><i class="fa fa-envelope fa-4x"></i></a>                
-                <a class="text-center d-block" data-fancybox href="https://www.google.com/maps/place/Pittsburgh,+PA/@40.4313473,-80.0505404,12z/data=!3m1!4b1!4m5!3m4!1s0x8834f16f48068503:0x8df915a15aa21b34!8m2!3d40.4406248!4d-79.9958864" title="My Location"><i class="fa fa-map-marker fa-4x"></i></a>                                        
-                <a class="text-center d-block" href="https://github.com/dan-singer"><i class="fa fa-github fa-4x"></i></a>      
-            </section>
-        </section>
+                <a href="#" onclick="window.open('mailto:djs5435@g.rit.edu');" title="Email"><i class="fa fa-envelope fa-4x"></i></a>                
+                <a href="https://www.google.com/maps/place/Pittsburgh,+PA/@40.4313473,-80.0505404,12z/data=!3m1!4b1!4m5!3m4!1s0x8834f16f48068503:0x8df915a15aa21b34!8m2!3d40.4406248!4d-79.9958864" title="My Location"><i class="fa fa-map-marker fa-4x"></i></a>                                        
+                <a href="https://github.com/dan-singer"><i class="fa fa-github fa-4x"></i></a>      
+            </div>
+            <p>&copy; Dan Singer 2018</p>
+        </footer>
 
     </body>
 </html>

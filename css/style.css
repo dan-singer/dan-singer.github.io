@@ -1,0 +1,55 @@
+/*CSS Properties*/
+:root{
+    --primary-color: rgb(103, 79, 182);        
+    --secondary-color: rgb(88, 4, 88);
+    --tertiary-color: rgb(50, 4, 56);
+    --bg: #342761;
+    margin: 0; padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    background-color: var(--bg);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*Nav Bar*/
+nav > div:nth-child(2){
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    background-color: var(--tertiary-color);
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    
+}
+nav > div:nth-child(2) div{
+    display: flex;
+    flex-direction: column;    
+    height: 200px;
+}
+nav > div:nth-child(2) div a{
+    flex: 0 1 auto;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 24px;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+a:hover{
+    background-color: var(--secondary-color);
+}
+
+
+h1{
+    color: var(--primary-color);
+}
+
+#splash h1:first-child{
+    margin-top: 0;
+}
