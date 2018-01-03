@@ -1,21 +1,49 @@
 /*CSS Properties*/
 :root{
-    --primary-color: rgb(103, 79, 182);        
-    --secondary-color: rgb(88, 4, 88);
-    --tertiary-color: rgb(50, 4, 56);
-    --bg: #342761;
+    --primary-color: #FF6663;        
+    --secondary-color: #BFD7EA;
+    --tertiary-color: #E0FF4F;
+    --bg: #0B3954;
+    --white: white;
     margin: 0; padding: 0;
 }
 
 body{
-    margin: 0;
+    margin: 0 5%;
     padding: 0;
     top: 0px;
     background-color: var(--bg);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--primary-color);
+}
+
+h1{
+    font-size: 30px;
+}
+h2{
+    font-size: 20px;
+}
+
+header{
 }
 
 /*Nav Bar*/
+
+.hamburger{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hamburger div{
+    flex: 0 1 15%;
+    margin-top: 10px;
+    background-color: var(--white);
+}
+
+/*Nav Contents Wrapper*/
 nav > div:nth-child(2){
     position: fixed;
     top: 0px;
@@ -24,13 +52,16 @@ nav > div:nth-child(2){
     width: 100%;
     height: 100%;
     opacity: 0.9;
-    
+    z-index: 1;
+    transition: left 1s;
 }
+/*Nav Contents*/
 nav > div:nth-child(2) div{
     display: flex;
     flex-direction: column;    
     height: 200px;
 }
+/*Nav Content Links*/
 nav > div:nth-child(2) div a{
     flex: 0 1 auto;
     text-decoration: none;
@@ -39,6 +70,7 @@ nav > div:nth-child(2) div a{
     border-bottom: 1px solid var(--secondary-color);
     padding-top: 20px;
     padding-left: 20px;
+    text-align: center
 }
 
 a:hover{
@@ -46,10 +78,19 @@ a:hover{
 }
 
 
-h1{
-    color: var(--primary-color);
+#splash{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 75vh;
 }
-
-#splash h1:first-child{
-    margin-top: 0;
+#splash div:first-child{
+    position: absolute;
+    width:100%;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+#splash div:first-child h2{
+    color: var(--secondary-color);
 }
