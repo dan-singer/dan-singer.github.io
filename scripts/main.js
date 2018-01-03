@@ -17,6 +17,8 @@ window.onload = function(e){
             viewingNav = false;
         }
     };
+
+    document.querySelector("#circle-intro").style.width = "0";
 };
 
 function setChildrenBGColor(parent, colorVar){
