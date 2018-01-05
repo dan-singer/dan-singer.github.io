@@ -11,14 +11,13 @@
 /*Animations*/
 @keyframes circle-shrink{
     from {
-        height: 300%;
-        width: 300%;
+        transform:translate(-50%,-50%) scale(3);
     }
     to {
-        height: 0%;
-        width: 0%;
+        transform:translate(-50%,-50%) scale(0);
     }
 }
+
 
 body{
     margin: 0 5%;
@@ -36,18 +35,7 @@ h2{
     font-size: 20px;
 }
 
-#circle-intro{
-    position: absolute;
-    top: 50%; left: 50%;
-    height: 0; width: 0;
-    transform:translate(-50%, -50%);
-    animation-name: circle-shrink;
-    animation-duration: 2s;
-    z-index: 2;
-}
-#circle-intro circle{
-    fill: var(--secondary-color);
-}
+
 
 /*Nav Bar*/
 
@@ -119,6 +107,20 @@ a:hover{
     color: var(--secondary-color);
 }
 
+#circle-intro{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    animation-fill-mode: forwards;
+    animation-name: circle-shrink;
+    animation-duration: 2s;
+    z-index: 2;
+}
+#circle-intro circle{
+    fill: var(--secondary-color);
+}
+
+
 #splash-board{
     position: absolute;
     top: 0; left: 0;
@@ -126,3 +128,4 @@ a:hover{
     z-index: -1;
     filter: blur(3px);
 }
+

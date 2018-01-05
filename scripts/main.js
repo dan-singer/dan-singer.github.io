@@ -10,7 +10,6 @@ window.onload = function(e){
     burger.onpointerleave = function(e){ setChildrenBGColor(this, "--white");};
     //Activate nav menu when clicked
     burger.onclick = (e)=>{
-        console.log("Burger");
         navWindow.style.left = "-20%";
         setTimeout(function(){ viewingNav = true; }, 1000);
 
@@ -25,7 +24,7 @@ window.onload = function(e){
 
 
     splash = document.querySelector("#splash-board");
-    generateSplashSVG();
+    generateSplash();
 
 };
 
@@ -38,6 +37,10 @@ function setChildrenBGColor(parent, colorVar){
     for (let i=0; i<parent.children.length; i++){
         parent.children[i].style.backgroundColor = getComputedStyle(parent).getPropertyValue(colorVar);
     }
+}
+
+function generateSplash(){
+
 }
 
 /**
