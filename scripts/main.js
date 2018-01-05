@@ -23,7 +23,7 @@ window.onload = function(e){
     };
 
 
-    splash = document.querySelector("#splash-board");
+    splash = document.querySelector("#splash");
     generateSplash();
 
 };
@@ -40,7 +40,60 @@ function setChildrenBGColor(parent, colorVar){
 }
 
 function generateSplash(){
+    let app = new PIXI.Application({width: splash.clientWidth, height:splash.clientHeight, transparent:true});
+    splash.appendChild(app.view);
 
+    const CIRCLE_COUNT = 100;
+    const SPEED = 50;
+    let docStyle = getComputedStyle(document.documentElement);
+    const rawColors = [docStyle.getPropertyValue("--white"), docStyle.getPropertyValue("--secondary-color"), docStyle.getPropertyValue("--tertiary-color")];
+    const hexColors = rawColors.map((color)=>{
+        return color.replace("#", "0x");
+    });
+    let radiusRange = {min: 1, max: 5};
+
+    for (let i=0; i<CIRCLE_COUNT; i++){
+        let circle = new PIXI.Graphics();
+        let color = hexColors[parseInt(Math.random() * hexColors.length)];
+        circle.beginFill(color);
+        circle.drawCircle(0, 0, radiusRange.min + Math.random() * (radiusRange.max - radiusRange.min));
+        circle.position = {
+            x: Math.random() * splash.clientWidth,
+            y: Math.random() * splash.clientHeight
+        };
+        circle.endFill();
+        circle.startY = circle.y;
+        circle.seed = Math.random() * 1000;
+        app.stage.addChild(circle);
+    }
+
+    app.ticker.add(function(){
+        let timestamp = app.ticker.lastTime;
+        let dt = 1 / app.ticker.FPS;
+        for (let child of app.stage.children){
+            child.x += SPEED * dt;
+            child.y = child.startY + Math.sin(child.seed + timestamp / 1000) * SPEED/2;
+            let r = child.width/2;
+            if (child.x > app.renderer.width + r){
+                child.x = -r;
+            }
+        }
+    });
+
+    //Handle window resizing
+    window.addEventListener("resize", function(e){
+        app.renderer.resize(splash.clientWidth, splash.clientHeight);
+        for (let child of app.stage.children){
+            child.position = {
+                x: Math.random() * splash.clientWidth,
+                y: Math.random() * splash.clientHeight
+            };
+        }
+    });
+
+    //Blur filter
+    let blur = new PIXI.filters.BlurFilter(2);
+    app.stage.filters = [blur];
 }
 
 /**
