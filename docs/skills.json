@@ -1,0 +1,39 @@
+{
+    "header": "Skills",
+    "containerQuery": "#about",
+    "skillClass": "skill-group",
+    "skills": [
+        {
+            "name": "Front End Development",
+            "icons": {
+                "main": "s code",
+                "inline": ["b html5", "b css3", "b js"]
+            },
+            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me: ES6, ES5, Pixi.js, etc."
+        },
+        {
+            "name": "Programming",
+            "icons": {
+                "main": "s terminal",
+                "inline": []
+            },
+            "description": "I am an excellent programmer with expertise in C# and strong knowledge of C++, Java, and Python."
+        },
+        {
+            "name": "Game Development",
+            "icons": {
+                "main": "s gamepad",
+                "inline": []
+            },
+            "description": "I am a fantasic game developer, with expertise in Unity and autonomous agents and strong knowledge of Monogame, BabylonJS, and Unreal Engine 4."
+        },
+        {
+            "name": "Miscellaneous",
+            "icons": {
+                "main": "s random",
+                "inline": ["b git", "s volume-up", "s cube"]
+            },
+            "description": "I've got a few other tricks up my sleeve too, like {0}, audio production {1}, 3D Modeling {2}, and the Adobe Suite."
+        }
+    ]
+}

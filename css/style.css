@@ -1,10 +1,11 @@
 /*CSS Properties*/
 :root{
-    --primary-color: #FF6663;        
-    --secondary-color: #BFD7EA;
-    --tertiary-color: #E0FF4F;
-    --bg: #0B3954;
-    --white: #FFFFFF;
+    --primary-color: #c46d60;        
+    --secondary-color: #c5b15f;
+    --tertiary-color: #79af59;
+    --bg: #e2e7ea;
+    --bg2: #ecf1f3;
+    --dark: #000000;
     margin: 0; padding: 0;
 }
 
@@ -20,7 +21,7 @@
 
 
 body{
-    margin: 0 5%;
+    margin: 0;
     padding: 0;
     top: 0px;
     background-color: var(--bg);
@@ -51,7 +52,7 @@ h2{
 .hamburger div{
     flex: 0 1 15%;
     margin-top: 10px;
-    background-color: var(--white);
+    background-color: var(--tertiary-color);
 }
 
 /*Nav Contents Wrapper*/
@@ -89,6 +90,7 @@ a:hover{
 }
 
 
+/*Splash Screen*/
 #splash{
     position: relative;
     text-align: center;
@@ -128,4 +130,29 @@ a:hover{
     z-index: -1;
     filter: blur(3px);
 }
+
+/*Skills*/
+#about{
+    text-align: center;
+    background-color: var(--bg2);
+}
+#about h2{
+    font-size: 2em;
+}
+.skill-group{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: var(--secondary-color);
+}
+.skill-group h3{
+    color: var(--primary-color);
+}
+.skill-group > svg path{
+    fill: var(--dark);
+}
+.skill-group p svg path{
+    fill: var(--tertiary-color);
+}
+
 

@@ -1,13 +1,35 @@
 let viewingNav = false;
 let splash;
-const xmlns = "http://www.w3.org/2000/svg"
+const xmlns = "http://www.w3.org/2000/svg";
+
+/**
+ * Set the children's background color based on the css variable provided
+ * @param {Element} parent 
+ * @param {String} colorVar 
+ */
+function setChildrenBGColor(parent, colorVar){
+    for (let i=0; i<parent.children.length; i++){
+        parent.children[i].style.backgroundColor = getComputedStyle(parent).getPropertyValue(colorVar);
+    }
+}
+
 window.onload = function(e){
+
+    splash = document.querySelector("#splash");
+    setupNav();
+    generateSplash();
+    generateSkills();
+
+};
+
+
+function setupNav(){
     const burger = document.querySelector(".hamburger");
     const navWindow = document.querySelector("nav > div:nth-child(2)");
 
     //Hamburger menu hover style
     burger.onpointerover = function(e){ setChildrenBGColor(this, "--tertiary-color");};
-    burger.onpointerleave = function(e){ setChildrenBGColor(this, "--white");};
+    burger.onpointerleave = function(e){ setChildrenBGColor(this, "--primary-color");};
     //Activate nav menu when clicked
     burger.onclick = (e)=>{
         navWindow.style.left = "-20%";
@@ -21,24 +43,8 @@ window.onload = function(e){
             viewingNav = false;
         }
     };
-
-
-    splash = document.querySelector("#splash");
-    generateSplash();
-
-
-};
-
-/**
- * Set the children's background color based on the css variable provided
- * @param {Element} parent 
- * @param {String} colorVar 
- */
-function setChildrenBGColor(parent, colorVar){
-    for (let i=0; i<parent.children.length; i++){
-        parent.children[i].style.backgroundColor = getComputedStyle(parent).getPropertyValue(colorVar);
-    }
 }
+
 
 function generateSplash(){
     let app = new PIXI.Application({width: splash.clientWidth, height:splash.clientHeight, transparent:true});
@@ -47,7 +53,7 @@ function generateSplash(){
     const CIRCLE_COUNT = 100;
     const SPEED = 50;
     let docStyle = getComputedStyle(document.documentElement);
-    const rawColors = [docStyle.getPropertyValue("--white"), docStyle.getPropertyValue("--secondary-color"), docStyle.getPropertyValue("--tertiary-color")];
+    const rawColors = [docStyle.getPropertyValue("--primary-color"), docStyle.getPropertyValue("--secondary-color"), docStyle.getPropertyValue("--tertiary-color")];
     const hexColors = rawColors.map((color)=>{
         return color.replace("#", "0x");
     });
@@ -97,7 +103,44 @@ function generateSplash(){
     app.stage.filters = [blur];
 }
 
+function generateSkills(){
+    //Get the json file
+    let skillRequest = new XMLHttpRequest();
+    skillRequest.onreadystatechange = function(){
 
+        let parseIcon = (input) => {
+            input = "fa" + input;
+            input = input.replace(" ", " fa-");
+            return input;
+        };
+
+        if (this.readyState == XMLHttpRequest.DONE){
+            let skillInfo = JSON.parse(this.responseText);
+            let skillHolder = document.querySelector(skillInfo.containerQuery);
+            skillHolder.innerHTML = `<h2>${skillInfo.header}</h2>`;
+            for (let skill of skillInfo.skills){
+                let div = document.createElement("div");
+                div.className = skillInfo.skillClass;
+                    let h3 = document.createElement("h3");
+                    h3.innerText = skill.name;
+                    let mainIcon = document.createElement("i");
+                    mainIcon.className = parseIcon(skill.icons.main) + " fa-4x";
+                    for (let i=0; i<skill.icons.inline.length; i++)
+                    {
+                        let icon = `<i class="${parseIcon(skill.icons.inline[i])}"></i>`;
+                        skill.description = skill.description.replace(`{${i}}`, icon);
+                    }
+                    let description = document.createElement("p");
+                    description.innerHTML = skill.description;
+                    div.appendChild(h3); div.appendChild(mainIcon); div.appendChild(description);
+                skillHolder.appendChild(div);
+                    
+            }
+        }
+    }
+    skillRequest.open('GET', "docs/skills.json");
+    skillRequest.send();
+}
 
 function chartTest(){
     let width = 300, height = 300;
@@ -134,11 +177,11 @@ function chartTest(){
  * __DEPRECATED
  * Generates an SVG particle effect for the splash screen
  */
-function generateSplashSVG(){
+function __generateSplashSVG(){
     //Create splash animation
     const CIRCLE_COUNT = 100;
     const SPEED = 1;
-    const colors = [getComputedStyle(document.documentElement).getPropertyValue("--white"), getComputedStyle(document.documentElement).getPropertyValue("--secondary-color"), getComputedStyle(document.documentElement).getPropertyValue("--tertiary-color")];
+    const colors = [getComputedStyle(document.documentElement).getPropertyValue("--primary-color"), getComputedStyle(document.documentElement).getPropertyValue("--secondary-color"), getComputedStyle(document.documentElement).getPropertyValue("--tertiary-color")];
     let radiusRange = {min: 1, max: 5};
     for (let i=0; i<CIRCLE_COUNT; i++){
         let circle = document.createElementNS(xmlns, "circle");
