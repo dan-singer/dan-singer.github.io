@@ -26,7 +26,6 @@ window.onload = function(e){
     splash = document.querySelector("#splash");
     generateSplash();
 
-    chartTest();
 
 };
 
@@ -97,6 +96,8 @@ function generateSplash(){
     let blur = new PIXI.filters.BlurFilter(2);
     app.stage.filters = [blur];
 }
+
+
 
 function chartTest(){
     let width = 300, height = 300;
