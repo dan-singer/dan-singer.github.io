@@ -26,6 +26,8 @@ window.onload = function(e){
     splash = document.querySelector("#splash");
     generateSplash();
 
+    chartTest();
+
 };
 
 /**
@@ -96,7 +98,39 @@ function generateSplash(){
     app.stage.filters = [blur];
 }
 
+function chartTest(){
+    let width = 300, height = 300;
+
+    let x = d3.scaleBand().range([0, width], .1);
+    let y = d3.scaleLinear().range([height, 0]);
+
+    let chart = d3.select(".chart")
+                .attr("width", width)
+                .attr("height", height);
+    
+    d3.tsv("data.tsv", d=>{d.value = +d.value; return d;}, function(error, data){
+        x.domain(data.map(d=>d.name));
+        y.domain([0, d3.max(data, d=>d.value)]);
+        let bars = chart.selectAll("g")
+                    .data(data)
+                    .enter().append("g")
+                        .attr("transform", (d,i)=>`translate(${x(d.name)}, 0)`);
+        bars.append("rect")
+            .attr("y", d=>y(d.value))
+            .attr("height", d=>height-y(d.value))
+            .attr("width", x.range());
+        bars.append("text")
+            .attr("x", x.range()/2)
+            .attr("y", d=>y(d.value)+3)
+            .attr("dy", ".75em")
+            .text(d=>d.value);
+    });
+
+
+}
+
 /**
+ * __DEPRECATED
  * Generates an SVG particle effect for the splash screen
  */
 function generateSplashSVG(){
