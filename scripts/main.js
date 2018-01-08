@@ -103,21 +103,30 @@ function generateSplash(){
     app.stage.filters = [blur];
 }
 
+/**
+ * Generate the skills markup using the skills json file
+ */
 function generateSkills(){
     //Get the json file
     let skillRequest = new XMLHttpRequest();
     skillRequest.onreadystatechange = function(){
 
+
+        //Convert the abbrieviated icon class name to its full one. 
+        //For example, "b html5" ---> "fab fa-html5"
         let parseIcon = (input) => {
             input = "fa" + input;
             input = input.replace(" ", " fa-");
             return input;
         };
 
+        //If the request is done
         if (this.readyState == XMLHttpRequest.DONE){
             let skillInfo = JSON.parse(this.responseText);
             let skillHolder = document.querySelector(skillInfo.containerQuery);
+            //Header h2
             skillHolder.innerHTML = `<h2>${skillInfo.header}</h2>`;
+            //Generate each skill
             for (let skill of skillInfo.skills){
                 let div = document.createElement("div");
                 div.className = skillInfo.skillClass;

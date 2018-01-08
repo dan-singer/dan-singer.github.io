@@ -135,9 +135,15 @@ a:hover{
 #about{
     text-align: center;
     background-color: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "title";
 }
 #about h2{
     font-size: 2em;
+    grid-area: title;
 }
 .skill-group{
     padding: 10px;
@@ -156,3 +162,32 @@ a:hover{
 }
 
 
+/*Media Queries*/
+@media screen and (min-width: 480px){
+    #about{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "title title";
+    }
+}
+@media screen and (min-width: 768px) {
+    #about{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "title title title"
+    }
+    .skill-group:last-child{
+        grid-column-start: 2; 
+        grid-column-end: 3;
+    }
+}
+@media screen and (min-width: 1024px){
+    #about{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "title title title title"
+    }
+    .skill-group:last-child{
+        grid-column: auto;
+    }
+}
