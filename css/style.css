@@ -1,3 +1,5 @@
+/*Main CSS for portfolio site. [Mobile first]*/
+
 /*CSS Properties*/
 :root{
     --primary-color: #c46d60;        
@@ -5,6 +7,7 @@
     --tertiary-color: #79af59;
     --bg: #e2e7ea;
     --bg2: #ecf1f3;
+    --bg-trans: #e2e7ea88;
     --dark: #000000;
     margin: 0; padding: 0;
 }
@@ -33,9 +36,21 @@ h1{
     font-size: 50px;
 }
 h2{
+    font-size: 40px;
+}
+h3{
     font-size: 20px;
 }
 
+
+a{
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color: var(--tertiary-color);
+}
 
 
 /*Nav Bar*/
@@ -63,7 +78,6 @@ nav > div:nth-child(2){
     background-color: var(--tertiary-color);
     width: 100%;
     height: 100%;
-    opacity: 0.9;
     z-index: 1;
     transition: left 1s;
 }
@@ -85,7 +99,7 @@ nav > div:nth-child(2) div a{
     text-align: center
 }
 
-a:hover{
+nav a:hover{
     background-color: var(--secondary-color);
 }
 
@@ -105,7 +119,7 @@ a:hover{
     left: 50%;
     transform:translate(-50%, -50%);
 }
-#splash div:first-child h2{
+#splash div:first-child h3{
     color: var(--secondary-color);
 }
 
@@ -142,7 +156,6 @@ a:hover{
     "title";
 }
 #about h2{
-    font-size: 2em;
     grid-area: title;
 }
 .skill-group{
@@ -161,15 +174,102 @@ a:hover{
     fill: var(--tertiary-color);
 }
 
+/*Projects*/
+#projects{
+    text-align: center;
+}
+#projects h2{
+    font-size: 2em;
+}
+.project{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "p-title"
+    "."
+    "."
+    "."
+    "."
+    "learn-more";
+    color: var(--primary-color);    
+}
+.project > *{
+    padding: 10px;
+}
+
+.project > div:first-child{
+    grid-area: p-title;
+}
+.project > div:not(:first-child){
+    background-color: var(--bg-trans);
+    border: 2px solid var(--secondary-color);
+}
+.project > a{
+    grid-area: learn-more;
+}
+
+.project > div > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   
+    align-items: center;
+}
+
+.project > div > div > p{
+    background-color: var(--secondary-color);
+    padding: 5px;
+    margin: 1%;
+    border-radius: 10px;
+    flex: 0 1 100%;  
+}
+
+
+.platforms{
+    color: var(--tertiary-color);
+    font-size: .5em;
+}
+
+/*Specific Projects*/
+.automaestro{
+    background-image: url("../media/automaestro/automaestro-gameplay-sm.jpg");
+    background-position: center center;
+    --primary-color: white;
+    --secondary-color: grey;
+    --tertiary-color: #7c7c7c;
+    --bg-trans: #00000088;
+}
+.checkers{
+    background-image: url("../media/checkers/checkers2.png");
+    background-position: center center;
+    --primary-color: rgb(3, 94, 3);
+    --secondary-color: white;
+    --tertiary-color: rgb(123, 137, 175);
+    --bg-trans: rgba(78, 76, 76, 0.533);
+}
+
 
 /*Media Queries*/
+
+/*Phones in landscape*/
 @media screen and (min-width: 480px){
     #about{
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "title title";
     }
+    .project{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "p-title p-title"
+        ". ."
+        ". ."
+        "learn-more learn-more"
+    }
+
 }
+/*Tablets*/
 @media screen and (min-width: 768px) {
     #about{
         grid-template-columns: 1fr 1fr 1fr;
@@ -180,7 +280,12 @@ a:hover{
         grid-column-start: 2; 
         grid-column-end: 3;
     }
+    /*Make project features fit 2 to a row*/
+    .project > div > div > p{
+        flex: 0 1 40%;
+    }
 }
+/*Computers*/
 @media screen and (min-width: 1024px){
     #about{
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -189,5 +294,8 @@ a:hover{
     }
     .skill-group:last-child{
         grid-column: auto;
+    }
+    .project{
+        padding: 0 10%;
     }
 }
