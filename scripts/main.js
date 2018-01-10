@@ -156,7 +156,46 @@ function generateProjects(){
     let pReq = new XMLHttpRequest();
     pReq.onreadystatechange = function(){
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            //Parse here
+
+            const projectInfo = JSON.parse(this.responseText);
+            //Convert abbreviated icon classes to full ones
+            for (let iconName in projectInfo.icon){
+                projectInfo.icon[iconName] = parseIcon(projectInfo.icon[iconName]);
+            }
+            let container = document.querySelector(projectInfo.containerQuery);
+
+
+            let toProjectSectionMarkup = (iconClass, items) => 
+            `<div>
+                <i class="${iconClass} ${projectInfo.iconSize}"></i>
+                <div>
+                    ${items.map(item=>`<p>${item}</p>`).join("")}
+                </div>
+            </div>
+            `;
+
+            
+            projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
+            let header = `<h2>${projectInfo.header}</h2>`;
+            let pDiv;
+            for (let project of projectInfo.projects){
+                pDiv = 
+                `<div class="${projectInfo.class} ${project.name.toLowerCase()}">
+                    <div>
+                        <h3>${project.name}</h3>
+                        <p>${project.platforms}</p>
+                        <p>${project.description}</p>
+                    </div>
+                    ${Object.keys(projectInfo.icon).map(
+                        key=>toProjectSectionMarkup(projectInfo.icon[key], project[key])
+                    ).join("")}
+                    <a href="${project.link.href}">${project.link.content}</a>                    
+                </div>`;
+            }
+            console.log(pDiv);
+            let markup = header + pDiv;
+            container.innerHTML = markup;
+
         }
     };
     pReq.open("GET", data.projects);

@@ -1,12 +1,15 @@
 {
+    "___comment___": "For icons, the first letter represents solid or brand, followed by a space and the name of the fontawesome icon. No need to prefix anything with fa.",
     "header": "Projects",
+    "class": "project",
+    "containerQuery": "#projects",
     "icon":{
-        "feature": "s wrench",
-        "tool": "s bolt",
+        "tools": "s wrench",
+        "features": "s bolt",
         "contributors": "s users",
-        "role": "s user",
-        "size": "4x"
+        "roles": "s user"
     },
+    "iconSize": "4x",
     "projects": [
         {
             "name": "Automaestro",
@@ -15,7 +18,7 @@
             "tools": ["C#", "Unity"],
             "features": ["CSV audio file parsing", "Component-Based Architecture"],
             "contributors": ["Artem Pugachev", "Aaron Cote"],
-            "role": "Lead Developer",
+            "roles": ["Lead Developer"],
             "link": {
                 "content": "Learn More",
                 "href": "https://dan-singer.github.io/automaestro/"            }
