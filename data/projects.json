@@ -13,6 +13,7 @@
     "projects": [
         {
             "name": "Automaestro",
+            "className": "automaestro",
             "platforms": "UWP",
             "description": "A music application which allows anyone to play and experience music.",
             "tools": ["C#", "Unity"],
@@ -22,6 +23,20 @@
             "link": {
                 "content": "Learn More",
                 "href": "https://dan-singer.github.io/automaestro/"            }
+        },
+        {
+            "name": "Checkers",
+            "className": "checkers",
+            "platforms": "Web App",
+            "description": "Two Player Checkers built for the web.",
+            "tools": ["HTML5", "CSS3", "Vanilla JavaScript"],
+            "features": ["Smooth CSS Transitions", "Mobile Friendly"],
+            "contributors": ["Solo Project"],
+            "roles": ["Lead Developer"],
+            "link": {
+                "content": "Try it out",
+                "href": "https://people.rit.edu/djs5435/230/project2/"            
+            }
         }
     ]
 }

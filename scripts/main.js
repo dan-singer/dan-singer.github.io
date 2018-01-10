@@ -177,10 +177,10 @@ function generateProjects(){
             
             projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
             let header = `<h2>${projectInfo.header}</h2>`;
-            let pDiv;
+            let pDiv = "";
             for (let project of projectInfo.projects){
-                pDiv = 
-                `<div class="${projectInfo.class} ${project.name.toLowerCase()}">
+                pDiv += 
+                `<div class="${projectInfo.class} ${project.className}">
                     <div>
                         <h3>${project.name}</h3>
                         <p>${project.platforms}</p>
@@ -190,9 +190,9 @@ function generateProjects(){
                         key=>toProjectSectionMarkup(projectInfo.icon[key], project[key])
                     ).join("")}
                     <a href="${project.link.href}">${project.link.content}</a>                    
-                </div>`;
+                </div>
+                `;
             }
-            console.log(pDiv);
             let markup = header + pDiv;
             container.innerHTML = markup;
 
