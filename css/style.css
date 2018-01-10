@@ -50,6 +50,7 @@ a{
 }
 a:hover{
     color: var(--tertiary-color);
+    text-decoration: underline;
 }
 
 
@@ -192,18 +193,37 @@ nav a:hover{
     "."
     "."
     "learn-more";
-    color: var(--primary-color);    
+    color: var(--primary-color); 
+    margin: 10px 0;   
 }
 .project > *{
     padding: 10px;
 }
 
 .project > div:first-child{
+    text-shadow: 1px 1px 0 var(--dark);
+
+}
+
+.project > div > h3:first-child{
+    margin-bottom: 0;
+}
+.project > div > p:first-of-type{
+    margin-top: 0;
+    color: var(--tertiary-color);
+    font-size: .65em;
+}
+.project > div > p:nth-of-type(2){
+    color: var(--secondary-color);
+}
+
+.project > div:first-child{
     grid-area: p-title;
 }
 .project > div:not(:first-child){
+    margin: 10px;
     background-color: var(--bg-trans);
-    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
 }
 .project > a{
     grid-area: learn-more;
@@ -224,12 +244,6 @@ nav a:hover{
     flex: 0 1 100%;  
 }
 
-
-.platforms{
-    color: var(--tertiary-color);
-    font-size: .5em;
-}
-
 /*Specific Projects*/
 .automaestro{
     background-image: url("../media/automaestro/automaestro-gameplay-sm.jpg");
@@ -237,15 +251,15 @@ nav a:hover{
     --primary-color: white;
     --secondary-color: grey;
     --tertiary-color: #7c7c7c;
-    --bg-trans: #00000088;
+    --bg-trans: #33333388;
 }
 .checkers{
     background-image: url("../media/checkers/checkers2.png");
     background-position: center center;
-    --primary-color: rgb(3, 94, 3);
+    --primary-color: rgb(109, 98, 98);
     --secondary-color: white;
-    --tertiary-color: rgb(123, 137, 175);
-    --bg-trans: rgba(78, 76, 76, 0.533);
+    --tertiary-color: rgb(207, 98, 98);
+    --bg-trans: #FFFFFF88;
 }
 
 
