@@ -1,0 +1,24 @@
+{
+    "header": "Projects",
+    "icon":{
+        "feature": "s wrench",
+        "tool": "s bolt",
+        "contributors": "s users",
+        "role": "s user",
+        "size": "4x"
+    },
+    "projects": [
+        {
+            "name": "Automaestro",
+            "platforms": "UWP",
+            "description": "A music application which allows anyone to play and experience music.",
+            "tools": ["C#", "Unity"],
+            "features": ["CSV audio file parsing", "Component-Based Architecture"],
+            "contributors": ["Artem Pugachev", "Aaron Cote"],
+            "role": "Lead Developer",
+            "link": {
+                "content": "Learn More",
+                "href": "https://dan-singer.github.io/automaestro/"            }
+        }
+    ]
+}

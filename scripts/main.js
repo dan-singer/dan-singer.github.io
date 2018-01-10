@@ -1,5 +1,9 @@
 let viewingNav = false;
 let splash;
+const data = {
+    skills: "data/skills.json",
+    projects: "data/projects.json"
+};
 const xmlns = "http://www.w3.org/2000/svg";
 
 /**
@@ -19,6 +23,7 @@ window.onload = function(e){
     setupNav();
     generateSplash();
     generateSkills();
+    generateProjects();
 
 };
 
@@ -45,7 +50,9 @@ function setupNav(){
     };
 }
 
-
+/**
+ * Generate the splash screen using PIXI
+ */
 function generateSplash(){
     let app = new PIXI.Application({width: splash.clientWidth, height:splash.clientHeight, transparent:true});
     splash.appendChild(app.view);
@@ -104,24 +111,15 @@ function generateSplash(){
 }
 
 /**
- * Generate the skills markup using the skills json file
+ * Generate the skills markup using the skill info from the data object
  */
 function generateSkills(){
     //Get the json file
     let skillRequest = new XMLHttpRequest();
     skillRequest.onreadystatechange = function(){
 
-
-        //Convert the abbrieviated icon class name to its full one. 
-        //For example, "b html5" ---> "fab fa-html5"
-        let parseIcon = (input) => {
-            input = "fa" + input;
-            input = input.replace(" ", " fa-");
-            return input;
-        };
-
         //If the request is done
-        if (this.readyState == XMLHttpRequest.DONE){
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200){
             let skillInfo = JSON.parse(this.responseText);
             let skillHolder = document.querySelector(skillInfo.containerQuery);
             //Header h2
@@ -147,8 +145,43 @@ function generateSkills(){
             }
         }
     }
-    skillRequest.open('GET', "docs/skills.json");
+    skillRequest.open("GET", data.skills);
     skillRequest.send();
+}
+
+/**
+ * Generate the project markup using the data from the data object
+ */
+function generateProjects(){
+    let pReq = new XMLHttpRequest();
+    pReq.onreadystatechange = function(){
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200){
+            //Parse here
+        }
+    };
+    pReq.open("GET", data.projects);
+    pReq.send();
+}
+
+/**
+ * Convert the abbrieviated icon class name to its full one
+ * @param {String} input abbreviated class name in form of "t icon", where t is the type of icon and icon is the name of the icon, with no fa prefix
+ * @return {String} full icon class name
+ * @example let fullIcon = parseIcon("b html5");//fullIcon equals "fab fa-html5" 
+ */
+function parseIcon(input){
+    input = "fa" + input;
+    input = input.replace(" ", " fa-");
+    return input;
+}
+
+/**
+ * Convert the abbreivated icon class size to the full one
+ * @param {String} input 
+ * @example let size = parseIconSize("4x"); //size equals "fa-4x"
+ */
+function parseIconSize(input){
+    return "fa-" + input;
 }
 
 function chartTest(){
