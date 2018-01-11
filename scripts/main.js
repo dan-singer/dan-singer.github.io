@@ -33,8 +33,8 @@ function setupNav(){
     const navWindow = document.querySelector("nav > div:nth-child(2)");
 
     //Hamburger menu hover style
-    burger.onpointerover = function(e){ setChildrenBGColor(this, "--tertiary-color");};
-    burger.onpointerleave = function(e){ setChildrenBGColor(this, "--primary-color");};
+    burger.onpointerover = function(e){ setChildrenBGColor(this, "--secondary-color");};
+    burger.onpointerleave = function(e){ setChildrenBGColor(this, "--tertiary-color");};
     //Activate nav menu when clicked
     burger.onclick = (e)=>{
         navWindow.style.left = "-20%";
