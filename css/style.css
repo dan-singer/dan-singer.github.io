@@ -239,7 +239,7 @@ nav a:hover{
 .project > div > div > p{
     background-color: var(--secondary-color);
     padding: 5px;
-    margin: 1%;
+    margin: 10px;
     border-radius: 10px;
     flex: 0 1 100%;  
 }

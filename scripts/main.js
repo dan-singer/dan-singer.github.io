@@ -42,7 +42,7 @@ function setupNav(){
 
     };
     //Hide nav menu 
-    document.onclick = function(e){
+    window.onclick = function(e){
         if (viewingNav){
             navWindow.style.left = "-100%";
             viewingNav = false;
@@ -82,16 +82,26 @@ function generateSplash(){
     }
 
     app.ticker.add(function(){
+
+        let viewRect = {left: 0, top:0, width: window.innerWidth, height:window.innerHeight};
+        let canvasRect = splash.getBoundingClientRect();
         let timestamp = app.ticker.lastTime;
         let dt = 1 / app.ticker.FPS;
-        for (let child of app.stage.children){
-            child.x += SPEED * dt;
-            child.y = child.startY + Math.sin(child.seed + timestamp / 1000) * SPEED/2;
-            let r = child.width/2;
-            if (child.x > app.renderer.width + r){
-                child.x = -r;
+        //See if the canvas is in view before updating
+        
+        if (canvasRect.top < viewRect.top + viewRect.height && canvasRect.top + canvasRect.height > viewRect.top){
+            if (dt > 1/6)
+                dt = 1/6;
+            for (let child of app.stage.children){
+                child.x += SPEED * dt;
+                child.y = child.startY + Math.sin(child.seed + timestamp / 1000) * SPEED/2;
+                let r = child.width/2;
+                if (child.x > app.renderer.width + r){
+                    child.x = -r;
+                }
             }
         }
+        
     });
 
     //Handle window resizing
