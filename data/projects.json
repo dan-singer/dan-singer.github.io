@@ -1,5 +1,8 @@
 {
-    "___comment___": "For icons, the first letter represents solid or brand, followed by a space and the name of the fontawesome icon. No need to prefix anything with fa.",
+    "___comments___": [
+        "For icons, the first letter represents solid or brand, followed by a space and the name of the fontawesome icon. No need to prefix anything with fa.",
+        "Make sure that there is a CSS class for each project which overrides the css variables (like --primary-image) and provides a background image"
+    ],
     "header": "Projects",
     "class": "project",
     "containerQuery": "#projects",
@@ -14,7 +17,7 @@
         {
             "name": "Automaestro",
             "className": "automaestro",
-            "platforms": "UWP",
+            "platforms": "Universal Windows Platform",
             "description": "A music application which allows anyone to play and experience music.",
             "tools": ["C#", "Unity"],
             "features": ["CSV audio file parsing", "Component-Based Architecture"],
@@ -22,7 +25,8 @@
             "roles": ["Lead Developer"],
             "link": {
                 "content": "Learn More",
-                "href": "https://dan-singer.github.io/automaestro/"            }
+                "href": "https://dan-singer.github.io/automaestro/"            
+            }
         },
         {
             "name": "Checkers",
@@ -36,6 +40,62 @@
             "link": {
                 "content": "Try it out",
                 "href": "https://people.rit.edu/djs5435/230/project2/"            
+            }
+        },
+        {
+            "name": "Expand",
+            "className": "expand",
+            "platforms": "Android",
+            "description": "A game where the user must control a planet to save it from being destroyed by asteroids.",
+            "tools": ["C#", "Unity"],
+            "features": ["In-App Purchases", "AdMob"],
+            "contributors": ["Solo Project"],
+            "roles": ["Lead Developer"],
+            "link": {
+                "content": "Learn More",
+                "href": "https://play.google.com/store/apps/details?id=com.Phungames.Expand"            
+            }
+        },
+        {
+            "name": "Space Voyager",
+            "className": "space-voyager",
+            "platforms": "Web App",
+            "description": "An open-world space shooter",
+            "tools": ["HTML5", "CSS3", "JavaScript", "Pixi.js"],
+            "features": ["Modern ES6", "Original Score", "Clean UI"],
+            "contributors": ["Solo project"],
+            "roles": ["Lead Developer"],
+            "link": {
+                "content": "Play it",
+                "href": "https://dan-singer.github.io/SpaceVoyager/project.html"            
+            }
+        },
+        {
+            "name": "FPS: Finite Platform Shooter",
+            "className": "fps-finite-platform-shooter",
+            "platforms": "Windows",
+            "description": "First-person puzzle game where the player must place their own platforms to reach the goal.",
+            "tools": ["C#", "Unity"],
+            "features": ["Winner of Best Overall Game at the <a href='https://www.herojam.io/'>RIT HeroJam</a> of Spring, 2017"],
+            "contributors": ["Nick Marano"],
+            "roles": ["Lead Programmer"],
+            "link": {
+                "content": "",
+                "href": ""
+            }
+        },
+        {
+            "name": "Fantasy World",
+            "className": "fantasy-world",
+            "platforms": "Windows",
+            "description": "Open-world simulation of Autonomous Agents",
+            "tools": ["C#", "Unity"],
+            "features": ["Autonomous Agents", "Path-Following", "Flocking", "AI"],
+            "contributors": ["Solo Project"],
+            "roles": ["Lead Programmer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/Unity-World"
             }
         }
     ]

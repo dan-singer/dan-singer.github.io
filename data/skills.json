@@ -1,7 +1,7 @@
 {
     "___comment___": "For icons, the first letter represents solid or brand, followed by a space and the name of the fontawesome icon. No need to prefix anything with fa.",
     "header": "Skills",
-    "containerQuery": "#about",
+    "containerQuery": "#skills",
     "skillClass": "skill-group",
     "skills": [
         {

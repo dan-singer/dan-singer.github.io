@@ -28,28 +28,29 @@ body{
     padding: 0;
     top: 0px;
     background-color: var(--bg);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Open Sans";
     color: var(--primary-color);
 }
 
 h1{
-    font-size: 50px;
+    font-size: 60px;
 }
 h2{
     font-size: 40px;
 }
 h3{
-    font-size: 20px;
+    font-size: 25px;
+}
+p{
+    font-size: 16px;
 }
 
-
 a{
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     text-decoration: none;
     font-weight: bold;
 }
 a:hover{
-    color: var(--tertiary-color);
     text-decoration: underline;
 }
 
@@ -147,16 +148,15 @@ nav a:hover{
 }
 
 /*Skills*/
-#about{
+#skills{
     text-align: center;
-    background-color: var(--bg2);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
     "title";
 }
-#about h2{
+#skills h2{
     grid-area: title;
 }
 .skill-group{
@@ -178,6 +178,7 @@ nav a:hover{
 /*Projects*/
 #projects{
     text-align: center;
+    background: linear-gradient(to bottom, var(--bg), var(--dark));
 }
 #projects h2{
     font-size: 2em;
@@ -193,7 +194,7 @@ nav a:hover{
     "."
     "."
     "learn-more";
-    color: var(--primary-color); 
+    color: var(--primary-color);
     margin: 10px 0;   
 }
 .project > *{
@@ -211,7 +212,7 @@ nav a:hover{
 .project > div > p:first-of-type{
     margin-top: 0;
     color: var(--tertiary-color);
-    font-size: .65em;
+    font-size: .85em;
 }
 .project > div > p:nth-of-type(2){
     color: var(--secondary-color);
@@ -222,8 +223,6 @@ nav a:hover{
 }
 .project > div:not(:first-child){
     margin: 10px;
-    background-color: var(--bg-trans);
-    border-radius: 10px;
 }
 .project > a{
     grid-area: learn-more;
@@ -251,7 +250,13 @@ nav a:hover{
     --primary-color: white;
     --secondary-color: grey;
     --tertiary-color: #7c7c7c;
-    --bg-trans: #33333388;
+}
+.space-voyager{
+    background-image: url("../media/space-voyager/space-voyager.png");
+    background-position: center center;
+    --primary-color: white;
+    --secondary-color: grey;
+    --tertiary-color: #7c7c7c;
 }
 .checkers{
     background-image: url("../media/checkers/checkers2.png");
@@ -259,15 +264,34 @@ nav a:hover{
     --primary-color: rgb(109, 98, 98);
     --secondary-color: white;
     --tertiary-color: rgb(207, 98, 98);
-    --bg-trans: #FFFFFF44;
 }
-
+.expand{
+    background-image: url("../media/expand/expand1.jpg");
+    background-position: center center;
+    --primary-color: rgb(133, 130, 130);
+    --secondary-color: white;
+    --tertiary-color: rgb(229, 44, 253);
+}
+.fps-finite-platform-shooter{
+    background-image: url("../media/fps/fps4-sm.png");
+    background-position: center center;
+    --primary-color: rgb(173, 10, 132);
+    --secondary-color: white;
+    --tertiary-color: rgb(229, 44, 253);
+}
+.fantasy-world{
+    background-image: url("../media/fantasy-world/fantasy-world.jpg");
+    background-position: center center;
+    --primary-color: rgb(28, 170, 40);
+    --secondary-color: rgb(255, 255, 255);
+    --tertiary-color: rgb(241, 177, 57);
+}
 
 /*Media Queries*/
 
 /*Phones in landscape*/
 @media screen and (min-width: 480px){
-    #about{
+    #skills{
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "title title";
@@ -285,7 +309,7 @@ nav a:hover{
 }
 /*Tablets*/
 @media screen and (min-width: 768px) {
-    #about{
+    /* #skills{
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas: 
         "title title title"
@@ -293,7 +317,12 @@ nav a:hover{
     .skill-group:last-child{
         grid-column-start: 2; 
         grid-column-end: 3;
+    } */
+
+    #skills{
+        margin: 0 5%;
     }
+
     /*Make project features fit 2 to a row*/
     .project > div > div > p{
         flex: 0 1 40%;
@@ -301,14 +330,15 @@ nav a:hover{
 }
 /*Computers*/
 @media screen and (min-width: 1024px){
-    #about{
+    /* #skills{
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
         "title title title title"
     }
     .skill-group:last-child{
         grid-column: auto;
-    }
+    } */
+
     .project{
         padding: 0 10%;
     }
