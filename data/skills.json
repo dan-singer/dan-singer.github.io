@@ -10,7 +10,7 @@
                 "main": "s code",
                 "inline": ["b html5", "b css3", "b js"]
             },
-            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me: ES6, ES5, Pixi.js, etc."
+            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me: ES6, ES5, Pixi.js, Three.js, etc."
         },
         {
             "name": "Programming",
@@ -18,7 +18,7 @@
                 "main": "s terminal",
                 "inline": []
             },
-            "description": "I am an excellent programmer with expertise in C# and strong knowledge of C++, Java, and Python."
+            "description": "I am an excellent programmer with expertise in C# and strong knowledge of Java, C++, and Python."
         },
         {
             "name": "Game Development",
