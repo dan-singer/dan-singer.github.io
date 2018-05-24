@@ -71,11 +71,12 @@ function generateSplash(){
         let color = hexColors[parseInt(Math.random() * hexColors.length)];
         circle.beginFill(color);
         circle.drawCircle(0, 0, radiusRange.min + Math.random() * (radiusRange.max - radiusRange.min));
+        circle.endFill();
+        circle.cacheAsBitmap = true;        
         circle.position = {
             x: Math.random() * splash.clientWidth,
             y: Math.random() * splash.clientHeight
         };
-        circle.endFill();
         circle.startY = circle.y;
         circle.seed = Math.random() * 1000;
         app.stage.addChild(circle);
