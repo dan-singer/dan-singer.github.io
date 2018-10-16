@@ -287,6 +287,13 @@ nav a:hover{
     --secondary-color: rgb(255, 255, 255);
     --tertiary-color: rgb(241, 177, 57);
 }
+.dark-game{
+    background-image: url("../media/dark/dark.jpg");
+    background-position: center center;
+    --primary-color: rgb(245, 245, 245);
+    --secondary-color: rgb(143, 140, 140);
+    --tertiary-color: rgb(51, 51, 51);
+}
 /*******************************/
 
 

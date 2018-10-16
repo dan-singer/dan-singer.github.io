@@ -15,6 +15,20 @@
     "iconSize": "4x",
     "projects": [
         {
+            "name": "Dark",
+            "className": "dark-game",
+            "platforms": "Windows",
+            "description": "A tech-demo/horror-escape game demonstrating random maze generation.",
+            "tools": ["Unreal Engine 4", "C++"],
+            "features": ["Random Maze Generation", "Backtracking", "Depth-first traversal", "Horror Aesthetic"],
+            "contributors": ["Solo Project"],
+            "roles": ["Solo Developer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/dark-ue4"
+            }
+        },
+        {
             "name": "Automaestro",
             "className": "automaestro",
             "platforms": "Universal Windows Platform",

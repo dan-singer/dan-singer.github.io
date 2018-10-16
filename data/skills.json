@@ -4,14 +4,7 @@
     "containerQuery": "#skills",
     "skillClass": "skill-group",
     "skills": [
-        {
-            "name": "Front End Development",
-            "icons": {
-                "main": "s code",
-                "inline": ["b html5", "b css3", "b js"]
-            },
-            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me. <br /> Pixi.js, Three.js, GSAP, Node.js, modern JavaScript features? No problem."
-        },
+
         {
             "name": "Programming",
             "icons": {
@@ -27,6 +20,14 @@
                 "inline": []
             },
             "description": "I am a fantastic game developer with expertise in Unity and deep knowledge of autonomous agents, Unreal Engine 4, and Monogame."
+        },
+        {
+            "name": "Front End Development",
+            "icons": {
+                "main": "s code",
+                "inline": ["b html5", "b css3", "b js"]
+            },
+            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me. <br /> Pixi.js, Three.js, GSAP, Node.js, modern JavaScript features? No problem."
         },
         {
             "name": "Miscellaneous",
