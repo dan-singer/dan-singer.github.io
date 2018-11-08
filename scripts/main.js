@@ -204,16 +204,17 @@ function generateProjects() {
             }
             let container = document.querySelector(projectInfo.containerQuery);
 
-            let toProjectSectionMarkup = (iconClass, iconName, items) =>
+            let toProjectSectionMarkup = (iconClass, iconName, items) => {
+                return (
                 `<div>
-                <h3>${iconName} <i class="${iconClass} ${
-                    projectInfo.iconSize
-                }"></i></h3>
-                <div>
-                    ${items.map(item => `<p>${item}</p>`).join("")}
+                    <h3>${iconName} <i class="${iconClass} ${projectInfo.iconSize}"></i></h3>
+                    <div>
+                        ${items.map(item => `<p>${item}</p>`).join("")}
+                    </div>
                 </div>
-            </div>
-            `;
+                `
+                );
+            };
 
             projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
             let header = `<h2>${projectInfo.header}</h2>`;
@@ -234,9 +235,11 @@ function generateProjects() {
                             )
                         )
                         .join("")}
-                    <a href="${project.link.href}">${
-                    project.link.content
-                }</a>                    
+                    ${project.link.content != "" ? `
+                    <div class="learn-more">
+                        <a href="${project.link.href}">${project.link.content}</a> 
+                    </div>` : ""
+                    }                   
                 </div>
                 `;
             }

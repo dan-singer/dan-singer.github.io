@@ -48,6 +48,7 @@ p {
 a {
     color: var(--secondary-color);
     font-weight: bold;
+    text-decoration: none;
 }
 a:hover {
     color: var(--primary-color);
@@ -163,6 +164,7 @@ nav a:hover {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    margin: 2px;
     color: var(--secondary-color);
 }
 .skill-group h3 {
@@ -223,9 +225,24 @@ nav a:hover {
 .project > div:not(:first-child) {
     margin: 10px;
 }
-.project > a {
+.learn-more{
     grid-area: learn-more;
+
+}
+.learn-more a {
+    padding: 5px 20px;
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
     font-size: 20px;
+    transition: 0.5s;
+    font-weight: normal;
+}
+
+.learn-more a:hover{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 .project > div > div {
@@ -236,16 +253,19 @@ nav a:hover {
 }
 
 .project > div > div > p {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
+    background-color: #ffffff20;
     opacity: 0.9;
     padding: 5px;
     margin: 10px;
     border: 1px solid var(--secondary-color);
-    border-radius: 10px;
+    border-radius: 2px;
     flex: 0 1 100%;
 }
 
+
 /*Specific Projects*/
+
 .automaestro {
     background-image: url("../media/automaestro/automaestro-gameplay-sm.jpg");
     background-position: center center;
@@ -263,8 +283,8 @@ nav a:hover {
 .checkers {
     background-image: url("../media/checkers/checkers2.png");
     background-position: center center;
-    --primary-color: rgb(109, 98, 98);
-    --secondary-color: white;
+    --primary-color: white;
+    --secondary-color: rgb(109, 98, 98);
     --tertiary-color: rgb(207, 98, 98);
 }
 .expand {
@@ -277,23 +297,23 @@ nav a:hover {
 .fps-finite-platform-shooter {
     background-image: url("../media/fps/fps4-sm.png");
     background-position: center center;
-    --primary-color: rgb(173, 10, 132);
-    --secondary-color: white;
+    --primary-color: white;
+    --secondary-color: rgb(62, 99, 200);
     --tertiary-color: rgb(229, 44, 253);
 }
 .fantasy-world {
     background-image: url("../media/fantasy-world/fantasy-world.jpg");
     background-position: center center;
-    --primary-color: rgb(28, 170, 40);
-    --secondary-color: rgb(255, 255, 255);
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(55, 146, 199);
     --tertiary-color: rgb(241, 177, 57);
 }
 .dark-game {
     background-image: url("../media/dark/dark.jpg");
     background-position: center center;
-    --primary-color: rgb(245, 245, 245);
-    --secondary-color: rgb(143, 140, 140);
-    --tertiary-color: rgb(51, 51, 51);
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(158, 158, 158);
+    --tertiary-color: rgb(236, 202, 202);
 }
 /*******************************/
 
@@ -307,6 +327,9 @@ nav a:hover {
 }
 #contact > div:first-of-type > * {
     margin: 0 10vw;
+}
+#contact a{
+    color: var(--tertiary-color);
 }
 #contact a:hover {
     color: var(--secondary-color);

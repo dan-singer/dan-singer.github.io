@@ -10,7 +10,7 @@
         "tools": "s wrench",
         "features": "s bolt",
         "contributors": "s users",
-        "roles": "s user"
+        "role": "s user"
     },
     "iconSize": "1x",
     "projects": [
@@ -27,7 +27,7 @@
                 "Horror Aesthetic"
             ],
             "contributors": ["Solo Project"],
-            "roles": ["Solo Developer"],
+            "role": ["Solo Developer"],
             "link": {
                 "content": "View the code",
                 "href": "https://github.com/dan-singer/dark-ue4"
@@ -44,7 +44,7 @@
                 "Component-Based Architecture"
             ],
             "contributors": ["Artem Pugachev", "Aaron Cote"],
-            "roles": ["Lead Developer"],
+            "role": ["Lead Developer"],
             "link": {
                 "content": "Learn More",
                 "href": "https://www.microsoft.com/en-us/p/automaestro/9pnxh3f00s46?activetab=pivot%3Aoverviewtab"
@@ -58,7 +58,7 @@
             "tools": ["HTML5", "CSS3", "Vanilla JavaScript"],
             "features": ["Smooth CSS Transitions", "Mobile Friendly"],
             "contributors": ["Solo Project"],
-            "roles": ["Lead Developer"],
+            "role": ["Lead Developer"],
             "link": {
                 "content": "Try it out",
                 "href": "https://people.rit.edu/djs5435/230/project2/"
@@ -72,7 +72,7 @@
             "tools": ["C#", "Unity"],
             "features": ["In-App Purchases", "AdMob"],
             "contributors": ["Solo Project"],
-            "roles": ["Lead Developer"],
+            "role": ["Lead Developer"],
             "link": {
                 "content": "",
                 "href": ""
@@ -86,7 +86,7 @@
             "tools": ["HTML5", "CSS3", "JavaScript", "Pixi.js"],
             "features": ["Modern ES6", "Original Score", "Clean UI"],
             "contributors": ["Solo project"],
-            "roles": ["Lead Developer"],
+            "role": ["Lead Developer"],
             "link": {
                 "content": "Play it",
                 "href": "https://dan-singer.github.io/SpaceVoyager/project.html"
@@ -102,7 +102,7 @@
                 "Winner of Best Overall Game at the <a href='https://www.herojam.io/'>RIT HeroJam</a> of Spring, 2017"
             ],
             "contributors": ["Nick Marano"],
-            "roles": ["Lead Programmer"],
+            "role": ["Lead Programmer"],
             "link": {
                 "content": "",
                 "href": ""
@@ -121,7 +121,7 @@
                 "AI"
             ],
             "contributors": ["Solo Project"],
-            "roles": ["Lead Programmer"],
+            "role": ["Lead Programmer"],
             "link": {
                 "content": "View the code",
                 "href": "https://github.com/dan-singer/Unity-World"
