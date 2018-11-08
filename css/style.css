@@ -1,29 +1,29 @@
 /*Main CSS for portfolio site. [Mobile first]*/
 
 /*CSS Properties*/
-:root{
-    --primary-color: #c46d60;        
+:root {
+    --primary-color: #c46d60;
     --secondary-color: #c5b15f;
     --tertiary-color: #79af59;
     --bg: #e2e7ea;
     --bg2: #ecf1f3;
     --bg-trans: #e2e7ea88;
     --dark: #000000;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /*Animations*/
-@keyframes circle-shrink{
+@keyframes circle-shrink {
     from {
-        transform:translate(-50%,-50%) scale(3);
+        transform: translate(-50%, -50%) scale(3);
     }
     to {
-        transform:translate(-50%,-50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
     }
 }
 
-
-body{
+body {
     margin: 0;
     padding: 0;
     top: 0px;
@@ -32,32 +32,30 @@ body{
     color: var(--primary-color);
 }
 
-h1{
+h1 {
     font-size: 60px;
 }
-h2{
+h2 {
     font-size: 40px;
 }
-h3{
+h3 {
     font-size: 25px;
 }
-p{
+p {
     font-size: 16px;
 }
 
-a{
-    color: var(--tertiary-color);
-    text-decoration: none;
+a {
+    color: var(--secondary-color);
     font-weight: bold;
 }
-a:hover{
-    text-decoration: underline;
+a:hover {
+    color: var(--primary-color);
 }
-
 
 /*Nav Bar*/
 
-.hamburger{
+.hamburger {
     width: 50px;
     height: 50px;
     margin: 0 10px;
@@ -67,14 +65,14 @@ a:hover{
     justify-content: center;
 }
 
-.hamburger div{
+.hamburger div {
     flex: 0 1 15%;
     margin-top: 10px;
     background-color: var(--tertiary-color);
 }
 
 /*Nav Contents Wrapper*/
-nav > div:nth-child(2){
+nav > div:nth-child(2) {
     position: fixed;
     top: 0px;
     left: -100%;
@@ -85,13 +83,13 @@ nav > div:nth-child(2){
     transition: left 1s;
 }
 /*Nav Contents*/
-nav > div:nth-child(2) div{
+nav > div:nth-child(2) div {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     height: 200px;
 }
 /*Nav Content Links*/
-nav > div:nth-child(2) div a{
+nav > div:nth-child(2) div a {
     flex: 0 1 auto;
     text-decoration: none;
     color: var(--primary-color);
@@ -99,195 +97,198 @@ nav > div:nth-child(2) div a{
     border-bottom: 1px solid var(--secondary-color);
     padding-top: 20px;
     padding-left: 20px;
-    text-align: center
+    text-align: center;
 }
 
-nav a:hover{
+nav a:hover {
     background-color: var(--secondary-color);
 }
 
-
 /*Splash Screen*/
-#splash{
+#splash {
     position: relative;
     text-align: center;
     pointer-events: none;
     width: 100%;
     height: 100vh;
 }
-#splash div:first-child{
+#splash div:first-child {
     position: absolute;
-    width:100%;
+    width: 100%;
     top: 50%;
     left: 50%;
-    transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
-#splash div:first-child h3{
+#splash div:first-child h3 {
     color: var(--secondary-color);
 }
 
-#circle-intro{
+#circle-intro {
     position: absolute;
-    top: 50%; left: 50%;
-    width: 100%; height: 100%;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
     animation-fill-mode: forwards;
     animation-name: circle-shrink;
     animation-duration: 2s;
     z-index: 2;
 }
-#circle-intro circle{
+#circle-intro circle {
     fill: var(--secondary-color);
 }
 
-
-#splash-board{
+#splash-board {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     filter: blur(3px);
 }
 
 /*Skills*/
-#skills{
+#skills {
     text-align: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "title";
+    grid-template-areas: "title";
 }
-#skills h2{
+#skills h2 {
     grid-area: title;
 }
-.skill-group{
+.skill-group {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     color: var(--secondary-color);
 }
-.skill-group h3{
+.skill-group h3 {
     color: var(--primary-color);
 }
-.skill-group > svg path{
+.skill-group > svg path {
     fill: var(--dark);
 }
-.skill-group p svg path{
+.skill-group p svg path {
     fill: var(--tertiary-color);
 }
 
 /*Projects*/
-#projects{
+#projects {
     text-align: center;
     background: linear-gradient(to bottom, var(--bg), var(--dark));
 }
-#projects h2{
+#projects h2 {
     font-size: 2em;
 }
-.project{
+.project {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "p-title"
-    "."
-    "."
-    "."
-    "."
-    "learn-more";
+        "p-title"
+        "."
+        "."
+        "."
+        "."
+        "learn-more";
     color: var(--primary-color);
-    margin: 10px 0;   
+    margin: 10px 0;
 }
-.project > *{
+.project > * {
     padding: 10px;
 }
 
-.project > div:first-child{
+.project > div:first-child {
     text-shadow: 1px 1px 0 var(--dark);
-
 }
 
-.project > div > h3:first-child{
+.project > div > h3:first-child {
     margin-bottom: 0;
 }
-.project > div > p:first-of-type{
+.project > div > p:first-of-type {
     margin-top: 0;
     color: var(--tertiary-color);
-    font-size: .85em;
+    font-size: 0.85em;
 }
-.project > div > p:nth-of-type(2){
+.project > div > p:nth-of-type(2) {
     color: var(--secondary-color);
 }
 
-.project > div:first-child{
+.project > div:first-child {
     grid-area: p-title;
 }
-.project > div:not(:first-child){
+.project > div:not(:first-child) {
     margin: 10px;
 }
-.project > a{
+.project > a {
     grid-area: learn-more;
+    font-size: 20px;
 }
 
-.project > div > div{
+.project > div > div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;   
+    justify-content: center;
     align-items: center;
 }
 
-.project > div > div > p{
+.project > div > div > p {
     background-color: var(--secondary-color);
+    opacity: 0.9;
     padding: 5px;
     margin: 10px;
+    border: 1px solid var(--secondary-color);
     border-radius: 10px;
-    flex: 0 1 100%;  
+    flex: 0 1 100%;
 }
 
 /*Specific Projects*/
-.automaestro{
+.automaestro {
     background-image: url("../media/automaestro/automaestro-gameplay-sm.jpg");
     background-position: center center;
     --primary-color: white;
     --secondary-color: grey;
     --tertiary-color: #7c7c7c;
 }
-.space-voyager{
+.space-voyager {
     background-image: url("../media/space-voyager/space-voyager.png");
     background-position: center center;
     --primary-color: white;
     --secondary-color: grey;
     --tertiary-color: #7c7c7c;
 }
-.checkers{
+.checkers {
     background-image: url("../media/checkers/checkers2.png");
     background-position: center center;
     --primary-color: rgb(109, 98, 98);
     --secondary-color: white;
     --tertiary-color: rgb(207, 98, 98);
 }
-.expand{
+.expand {
     background-image: url("../media/expand/expand1.jpg");
     background-position: center center;
     --primary-color: rgb(133, 130, 130);
     --secondary-color: white;
     --tertiary-color: rgb(229, 44, 253);
 }
-.fps-finite-platform-shooter{
+.fps-finite-platform-shooter {
     background-image: url("../media/fps/fps4-sm.png");
     background-position: center center;
     --primary-color: rgb(173, 10, 132);
     --secondary-color: white;
     --tertiary-color: rgb(229, 44, 253);
 }
-.fantasy-world{
+.fantasy-world {
     background-image: url("../media/fantasy-world/fantasy-world.jpg");
     background-position: center center;
     --primary-color: rgb(28, 170, 40);
     --secondary-color: rgb(255, 255, 255);
     --tertiary-color: rgb(241, 177, 57);
 }
-.dark-game{
+.dark-game {
     background-image: url("../media/dark/dark.jpg");
     background-position: center center;
     --primary-color: rgb(245, 245, 245);
@@ -296,25 +297,23 @@ nav a:hover{
 }
 /*******************************/
 
-
-
 /*Contact*/
-#contact{
+#contact {
     text-align: center;
 }
-#contact > div:first-of-type{
+#contact > div:first-of-type {
     display: flex;
     justify-content: center;
 }
-#contact > div:first-of-type > *{
+#contact > div:first-of-type > * {
     margin: 0 10vw;
 }
-#contact a:hover{
-    color:var(--secondary-color);
+#contact a:hover {
+    color: var(--secondary-color);
 }
 
 /*Footer*/
-footer{
+footer {
     text-align: center;
     margin-top: 40px;
     border-top: 1px solid var(--dark);
@@ -323,29 +322,27 @@ footer{
     align-content: center;
     background-color: var(--bg2);
 }
-footer > *{
+footer > * {
     margin: 10px 20px;
 }
 
 /*Media Queries*/
 
 /*Phones in landscape*/
-@media screen and (min-width: 480px){
-    #skills{
+@media screen and (min-width: 480px) {
+    #skills {
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-        "title title";
+        grid-template-areas: "title title";
     }
-    .project{
+    .project {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "p-title p-title"
-        ". ."
-        ". ."
-        "learn-more learn-more"
+        grid-template-areas:
+            "p-title p-title"
+            ". ."
+            ". ."
+            "learn-more learn-more";
     }
-
 }
 /*Tablets*/
 @media screen and (min-width: 768px) {
@@ -359,18 +356,17 @@ footer > *{
         grid-column-end: 3;
     } */
 
-    #skills{
+    #skills {
         margin: 0 5%;
     }
 
     /*Make project features fit 2 to a row*/
-    .project > div > div > p{
+    .project > div > div > p {
         flex: 0 1 40%;
     }
-
 }
 /*Computers*/
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     /* #skills{
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas: 
@@ -380,7 +376,7 @@ footer > *{
         grid-column: auto;
     } */
 
-    .project{
+    .project {
         padding: 0 10%;
     }
 }

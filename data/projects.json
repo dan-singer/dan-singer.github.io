@@ -6,13 +6,13 @@
     "header": "Projects",
     "class": "project",
     "containerQuery": "#projects",
-    "icon":{
+    "icon": {
         "tools": "s wrench",
         "features": "s bolt",
         "contributors": "s users",
         "roles": "s user"
     },
-    "iconSize": "4x",
+    "iconSize": "1x",
     "projects": [
         {
             "name": "Dark",
@@ -20,7 +20,12 @@
             "platforms": "Windows",
             "description": "A tech-demo/horror-escape game demonstrating random maze generation.",
             "tools": ["Unreal Engine 4", "C++"],
-            "features": ["Random Maze Generation", "Backtracking", "Depth-first traversal", "Horror Aesthetic"],
+            "features": [
+                "Random Maze Generation",
+                "Backtracking",
+                "Depth-first traversal",
+                "Horror Aesthetic"
+            ],
             "contributors": ["Solo Project"],
             "roles": ["Solo Developer"],
             "link": {
@@ -34,12 +39,15 @@
             "platforms": "Universal Windows Platform",
             "description": "A music application which allows anyone to play and experience music.",
             "tools": ["C#", "Unity"],
-            "features": ["CSV audio file parsing", "Component-Based Architecture"],
+            "features": [
+                "CSV audio file parsing",
+                "Component-Based Architecture"
+            ],
             "contributors": ["Artem Pugachev", "Aaron Cote"],
             "roles": ["Lead Developer"],
             "link": {
                 "content": "Learn More",
-                "href": "https://www.microsoft.com/en-us/p/automaestro/9pnxh3f00s46?activetab=pivot%3Aoverviewtab"            
+                "href": "https://www.microsoft.com/en-us/p/automaestro/9pnxh3f00s46?activetab=pivot%3Aoverviewtab"
             }
         },
         {
@@ -53,7 +61,7 @@
             "roles": ["Lead Developer"],
             "link": {
                 "content": "Try it out",
-                "href": "https://people.rit.edu/djs5435/230/project2/"            
+                "href": "https://people.rit.edu/djs5435/230/project2/"
             }
         },
         {
@@ -67,7 +75,7 @@
             "roles": ["Lead Developer"],
             "link": {
                 "content": "",
-                "href": ""            
+                "href": ""
             }
         },
         {
@@ -81,7 +89,7 @@
             "roles": ["Lead Developer"],
             "link": {
                 "content": "Play it",
-                "href": "https://dan-singer.github.io/SpaceVoyager/project.html"            
+                "href": "https://dan-singer.github.io/SpaceVoyager/project.html"
             }
         },
         {
@@ -90,7 +98,9 @@
             "platforms": "Windows",
             "description": "First-person puzzle game where the player must place their own platforms to reach the goal.",
             "tools": ["C#", "Unity"],
-            "features": ["Winner of Best Overall Game at the <a href='https://www.herojam.io/'>RIT HeroJam</a> of Spring, 2017"],
+            "features": [
+                "Winner of Best Overall Game at the <a href='https://www.herojam.io/'>RIT HeroJam</a> of Spring, 2017"
+            ],
             "contributors": ["Nick Marano"],
             "roles": ["Lead Programmer"],
             "link": {
@@ -104,7 +114,12 @@
             "platforms": "Windows",
             "description": "Open-world simulation of Autonomous Agents",
             "tools": ["C#", "Unity"],
-            "features": ["Autonomous Agents", "Path-Following", "Flocking", "AI"],
+            "features": [
+                "Autonomous Agents",
+                "Path-Following",
+                "Flocking",
+                "AI"
+            ],
             "contributors": ["Solo Project"],
             "roles": ["Lead Programmer"],
             "link": {

@@ -4,14 +4,13 @@
     "containerQuery": "#skills",
     "skillClass": "skill-group",
     "skills": [
-
         {
             "name": "Programming",
             "icons": {
                 "main": "s terminal",
                 "inline": []
             },
-            "description": "I am an excellent programmer and am fluent in C#, C++, Java, and Python."
+            "description": "I am an excellent programmer and am fluent in C#, C++, Java, C, and Python."
         },
         {
             "name": "Game Development",
