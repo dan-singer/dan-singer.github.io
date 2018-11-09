@@ -23,7 +23,7 @@
     }
 }
 
-@keyframes fade-in {
+@keyframes appear {
     from {
        opacity: 0;
     }
@@ -63,13 +63,18 @@ a:hover {
     color: var(--tertiary-color);
 }
 
+
+.fade-in{
+}
+
 .fade-in.hidden{
     opacity: 0;
 }
 
 .fade-in.active{
-    opacity: 1;
-    animation: fade-in 1s;
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 /*Nav Bar*/

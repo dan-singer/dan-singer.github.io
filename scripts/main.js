@@ -269,9 +269,8 @@ function setupAnimations()
             }
         }
     }
-
-    document.onscroll = scrollHandler;
-    document.onresize = scrollHandler;
+    window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("resize", scrollHandler);
 }
 
 /**
