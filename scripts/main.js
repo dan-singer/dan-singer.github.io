@@ -25,6 +25,7 @@ window.onload = function(e) {
     generateSplash();
     generateSkills();
     generateProjects();
+    setupAnimations();
 };
 
 function setupNav() {
@@ -220,7 +221,7 @@ function generateProjects() {
             let header = `<h2>${projectInfo.header}</h2>`;
             let pDiv = "";
             for (let project of projectInfo.projects) {
-                pDiv += `<div class="${projectInfo.class} ${project.className}">
+                pDiv += `<div class="${projectInfo.class} ${project.className} fade-in hidden">
                     <div>
                         <h3>${project.name}</h3>
                         <p>${project.platforms}</p>
@@ -249,6 +250,23 @@ function generateProjects() {
     };
     pReq.open("GET", data.projects);
     pReq.send();
+}
+
+/**
+ * Sets up the animations that should occur when they are scrolled into view
+ */
+function setupAnimations()
+{
+    document.onscroll = e => {
+        let animatedElems = document.querySelectorAll(".fade-in");
+
+        for (let animatedElem of animatedElems){
+            let rect = animatedElem.getBoundingClientRect();
+            if (rect.top + rect.height/2 < window.innerHeight){
+                animatedElem.className = animatedElem.className.replace("hidden", "active");
+            }
+        }
+    }
 }
 
 /**
