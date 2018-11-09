@@ -33,54 +33,56 @@
     </head>
 
     <body>
-        <header>
-            <nav>
-                <div class="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div>
-                    <div>
-                        <a href="#splash">Home</a>
-                        <a href="#skills">Skills</a>                        
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact Me</a>                        
+        <section id="wrapper">
+            <header>
+                <nav>
+                    <div class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
+                    <div>
+                        <div>
+                            <a href="#splash">Home</a>
+                            <a href="#skills">Skills</a>                        
+                            <a href="#projects">Projects</a>
+                            <a href="#contact">Contact Me</a>                        
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <section id="splash">
+                <div>
+                    <h1>Dan Singer</h1>
+                    <h3>Software Engineer</h3>
                 </div>
-            </nav>
-        </header>
+                <svg id="circle-intro" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"/>
+                </svg>
+                <!--<svg id="splash-board"></svg>-->
+            </section>
 
-        <section id="splash">
-            <div>
-                <h1>Dan Singer</h1>
-                <h3>Software Engineer</h3>
-            </div>
-            <svg id="circle-intro" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="50"/>
-            </svg>
-            <!--<svg id="splash-board"></svg>-->
+            <!--Populated with skills.json-->
+            <section id="skills"></section>
+
+            <!--Populated with projects.json-->
+            <section id="projects"></section>
+
+            <section id="contact">
+                <h3>Let's get in touch</h3>
+                <div>
+                    <a href="https://linkedin.com/in/dan-singer-513909137/" title="LinkedIn"><i class="fab fa-linkedin fa-4x"></i></a>              
+                    <a href="#" onclick="window.open('mailto:dsinger@mail.rit.edu');" title="Email"><i class="fas fa-envelope fa-4x"></i></a>                
+                    <a href="https://github.com/dan-singer"><i class="fab fa-github fa-4x"></i></a>     
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; Dan Singer 2018</p>
+                <p><a href="docs/dan-singer-resume.pdf" title="Resume">Resume <i class="fas fa-file-pdf"></i></a></p>
+            </footer>
         </section>
-
-        <!--Populated with skills.json-->
-        <section id="skills"></section>
-
-        <!--Populated with projects.json-->
-        <section id="projects"></section>
-
-        <section id="contact">
-            <h3>Let's get in touch</h3>
-            <div>
-                <a href="https://linkedin.com/in/dan-singer-513909137/" title="LinkedIn"><i class="fab fa-linkedin fa-4x"></i></a>              
-                <a href="#" onclick="window.open('mailto:dsinger@mail.rit.edu');" title="Email"><i class="fas fa-envelope fa-4x"></i></a>                
-                <a href="https://github.com/dan-singer"><i class="fab fa-github fa-4x"></i></a>     
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; Dan Singer 2018</p>
-            <p><a href="docs/dan-singer-resume.pdf" title="Resume">Resume <i class="fas fa-file-pdf"></i></a></p>
-        </footer>
 
     </body>
 </html>
