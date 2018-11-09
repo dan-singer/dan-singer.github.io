@@ -25,7 +25,6 @@ window.onload = function(e) {
     generateSplash();
     generateSkills();
     generateProjects();
-    setupAnimations();
 };
 
 function setupNav() {
@@ -246,6 +245,7 @@ function generateProjects() {
             }
             let markup = header + pDiv;
             container.innerHTML = markup;
+            setupAnimations(); // We set up animations after projects have loaded into the dom
         }
     };
     pReq.open("GET", data.projects);
@@ -257,16 +257,21 @@ function generateProjects() {
  */
 function setupAnimations()
 {
-    document.onscroll = e => {
-        let animatedElems = document.querySelectorAll(".fade-in");
+    let animatedElems = document.querySelectorAll(".fade-in");
 
+    let scrollHandler = function(e){
         for (let animatedElem of animatedElems){
+            if (animatedElem.className.includes("active"))
+                continue;
             let rect = animatedElem.getBoundingClientRect();
             if (rect.top + rect.height/2 < window.innerHeight){
                 animatedElem.className = animatedElem.className.replace("hidden", "active");
             }
         }
     }
+
+    document.onscroll = scrollHandler;
+    document.onresize = scrollHandler;
 }
 
 /**
