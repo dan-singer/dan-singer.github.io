@@ -264,7 +264,7 @@ function setupAnimations()
             if (animatedElem.className.includes("active"))
                 continue;
             let rect = animatedElem.getBoundingClientRect();
-            if (rect.top + rect.height/2 < window.innerHeight){
+            if (rect.top + rect.height/4 < window.innerHeight){
                 animatedElem.className = animatedElem.className.replace("hidden", "active");
             }
         }
