@@ -46,12 +46,12 @@ p {
 }
 
 a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
 }
 a:hover {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
 }
 
 /*Nav Bar*/
@@ -164,7 +164,6 @@ nav a:hover {
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 2px;
     color: var(--secondary-color);
 }
 .skill-group h3 {
@@ -233,8 +232,8 @@ nav a:hover {
     padding: 5px 10px;
     text-decoration: none;
     color: var(--primary-color);
-    background-color: var(--secondary-color);
-    border-radius: 10px;
+    background-color: #00000080;
+    border: 1px solid var(--secondary-color);
     transition: 0.5s;
     font-weight: normal;
 }
@@ -252,8 +251,8 @@ nav a:hover {
 }
 
 .project > div > div > p {
-    /* background-color: var(--secondary-color); */
-    background-color: #00000020;
+    background-color: var(--secondary-color);
+    /* background-color: #ffffff80; */
     opacity: 0.9;
     padding: 5px;
     margin: 10px;
