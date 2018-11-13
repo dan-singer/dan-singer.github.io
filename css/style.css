@@ -91,6 +91,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 1;
 }
 
 .hamburger div {
@@ -231,6 +232,8 @@ nav a:hover {
 
 .project > div:first-child {
     text-shadow: 1px 1px 0 var(--dark);
+    background-color: #00000080;
+
 }
 
 .project > div > h3:first-child {
@@ -309,7 +312,7 @@ nav a:hover {
     background-image: url("../media/checkers/checkers2.png");
     background-position: center center;
     --primary-color: white;
-    --secondary-color: rgb(109, 98, 98);
+    --secondary-color: rgb(136, 130, 130);
     --tertiary-color: rgb(207, 98, 98);
 }
 .expand {
