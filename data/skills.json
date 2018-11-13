@@ -18,10 +18,10 @@
                 "main": "s gamepad",
                 "inline": []
             },
-            "description": "I am a fantastic game developer with expertise in Unity and deep knowledge of autonomous agents, Unreal Engine 4, and Monogame."
+            "description": "I am a fantastic game developer with expertise in Unity, deep knowledge of autonomous agents, Unreal Engine 4, Monogame, SFML, Box2D, and 3D Modeling."
         },
         {
-            "name": "Front End Development",
+            "name": "Web Development",
             "icons": {
                 "main": "s code",
                 "inline": ["b html5", "b css3", "b js"]
@@ -34,7 +34,7 @@
                 "main": "s random",
                 "inline": ["b git", "s volume-up", "s cube"]
             },
-            "description": "I've got a few other tricks up my sleeve too, like killer {0} skills, audio production {1} knowledge, 3D Modeling {2} skills, and Adobe Suite familiarity."
+            "description": "I've got a few other tricks up my sleeve too, like killer {0} skills, audio production {1} knowledge, and Adobe Suite familiarity."
         }
     ]
 }

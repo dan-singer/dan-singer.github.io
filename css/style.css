@@ -133,6 +133,17 @@ nav a:hover {
     background-color: var(--secondary-color);
 }
 
+/* Top contact */
+#top-contact{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 10px;
+}
+#top-contact > *{
+    margin: 0 5px;
+}
+
 /*Splash Screen*/
 #splash {
     position: relative;
@@ -225,6 +236,7 @@ nav a:hover {
         "learn-more";
     color: var(--primary-color);
     margin: 10px 0;
+    min-height: 75vh;
 }
 .project > * {
     padding: 10px;
