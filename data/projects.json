@@ -34,6 +34,25 @@
             }
         },
         {
+            "name": "Hackbox",
+            "className": "hackbox",
+            "platforms": "Windows, Web",
+            "description": "A networked category-guessing party game.",
+            "tools": ["Node.js", "C#"],
+            "features": [
+                "Heroku Backend",
+                "Responsive Web Frontend",
+                "Unity game client",
+                "Socket.io network programming"
+            ],
+            "contributors": ["Jake Alaimo", "Ivy Zhang"],
+            "role": ["Backend Developer"],
+            "link":{
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/hackbox-backend"
+            }
+        },
+        {
             "name": "Automaestro",
             "className": "automaestro",
             "platforms": "Universal Windows Platform",

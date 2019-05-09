@@ -355,6 +355,13 @@ nav a:hover {
     --secondary-color: rgb(158, 158, 158);
     --tertiary-color: rgb(236, 202, 202);
 }
+.hackbox {
+    background-image: url("../media/hackbox/hackbox.png");
+    background-position: center center;
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(87, 172, 241);
+    --tertiary-color: rgb(39, 243, 216);
+}
 /*******************************/
 
 /*Contact*/
