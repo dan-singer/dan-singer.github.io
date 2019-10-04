@@ -362,6 +362,13 @@ nav a:hover {
     --secondary-color: rgb(87, 172, 241);
     --tertiary-color: rgb(39, 243, 216);
 }
+.samurai-shift {
+    background-image: url("../media/samurai-shift/gravity-2.png");
+    background-position: center center;
+    --primary-color: black;
+    --secondary-color: rgb(87, 172, 241);
+    --tertiary-color: rgb(39, 243, 216);
+}
 /*******************************/
 
 /*Contact*/

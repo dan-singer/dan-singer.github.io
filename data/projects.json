@@ -34,6 +34,24 @@
             }
         },
         {
+            "name": "Samurai Shift",
+            "className": "samurai-shift",
+            "platforms": "Windows",
+            "description": "A gravity-based 2D puzzle-platformer.",
+            "tools": ["Unity", "C#"],
+            "features": [
+                "Gravity Shifting",
+                "Original Score",
+                "State Pattern"
+            ],
+            "contributors": ["Michael Capra", "Katie Roy", "Matthew Paseltiner", "TJ Wolschon", "Max De George"],
+            "role": ["Gameplay Programmer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/GDD2Game2"
+            }
+        },
+        {
             "name": "Hackbox",
             "className": "hackbox",
             "platforms": "Windows, Web",

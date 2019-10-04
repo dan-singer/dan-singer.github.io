@@ -10,7 +10,7 @@
                 "main": "s terminal",
                 "inline": []
             },
-            "description": "I am an excellent programmer and am fluent in C++, C#, Java, and Python."
+            "description": "I am an excellent programmer and am fluent in C/C++, C#, Java, and Python."
         },
         {
             "name": "Game Development",
@@ -18,7 +18,7 @@
                 "main": "s gamepad",
                 "inline": []
             },
-            "description": "I am a fantastic game developer with expertise in Unity, deep knowledge of autonomous agents, Unreal Engine 4, Monogame, SFML, Box2D, 3D Modeling, and OpenGL."
+            "description": "I am a fantastic game developer with expertise in Unity and Unreal Engine 4, deep knowledge of autonomous agents, Monogame, SFML, OpenGL, DirectX, and HLSL."
         },
         {
             "name": "Web Development",
