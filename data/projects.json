@@ -22,7 +22,7 @@
             "tools": ["Unity", "C#"],
             "features": [
                 "Hybrid ECS Architecture",
-                "AI powered by Behaviour Trees",
+                "AI powered by Behavior Trees",
                 "Original, Dynamic Soundtrack"
             ],
             "contributors": ["Nick Marano"],
