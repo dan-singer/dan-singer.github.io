@@ -15,6 +15,24 @@
     "iconSize": "1x",
     "projects": [
         {
+            "name": "Trealthy",
+            "className": "trealthy",
+            "platforms": "Windows",
+            "description": "A first-person stealth adventure.",
+            "tools": ["Unity", "C#"],
+            "features": [
+                "Hybrid ECS Architecture",
+                "AI powered by Behaviour Trees",
+                "Original, Dynamic Soundtrack"
+            ],
+            "contributors": ["Nick Marano"],
+            "role": ["Gameplay/AI Programmer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/trealthy"
+            }
+        },
+        {
             "name": "Dark",
             "className": "dark-game",
             "platforms": "Windows",

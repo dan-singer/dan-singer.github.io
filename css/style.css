@@ -369,6 +369,13 @@ nav a:hover {
     --secondary-color: rgb(87, 172, 241);
     --tertiary-color: rgb(39, 243, 216);
 }
+.trealthy {
+    background-image: url("../media/trealthy/trealthy.png");
+    background-position: center center;
+    --primary-color: white;
+    --secondary-color: rgb(74, 75, 77);
+    --tertiary-color: rgb(39, 243, 216);
+}
 /*******************************/
 
 /*Contact*/
