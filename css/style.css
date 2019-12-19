@@ -376,6 +376,28 @@ nav a:hover {
     --secondary-color: rgb(74, 75, 77);
     --tertiary-color: rgb(39, 243, 216);
 }
+.space-fps {
+    background-image: url("../media/space-fps/space-fps.png");
+    background-position: center center;
+    --primary-color: white;
+    --secondary-color: rgb(95, 130, 199);
+    --tertiary-color: rgb(39, 243, 216);
+}
+.shape-shooter {
+    background-image: url("../media/shape-shooter/shape-shooter.png");
+    background-position: center center;
+    background-size: cover;
+    --primary-color: white;
+    --secondary-color: rgb(202, 170, 28);
+    --tertiary-color: rgb(39, 243, 216);
+}
+.hyper-hacker {
+    background-image: url("../media/hyper-hacker/hyper-hacker.png");
+    background-position: center center;
+    --primary-color: white;
+    --secondary-color: rgb(124, 121, 121);
+    --tertiary-color: rgb(39, 243, 216);
+}
 /*******************************/
 
 /*Contact*/

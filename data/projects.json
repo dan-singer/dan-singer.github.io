@@ -15,6 +15,47 @@
     "iconSize": "1x",
     "projects": [
         {
+            "name": "Shape Shooter",
+            "className": "shape-shooter",
+            "platforms": "Windows",
+            "description": "A shape-shooting minigame built with DirectX 11.",
+            "tools": ["C++", "DirectX 11"],
+            "features": [
+                "<a href='https://github.com/dan-singer/ft-engine'>Custom DirectX 11 Engine</a>",
+                "Component-based architecture",
+                "PBR Lighting",
+                "Particle System",
+                "UI System",
+                "Original Soundtrack"
+            ],
+            "contributors": ["Michael Capra", "Michelle Petilli", "Julian Washington"],
+            "role": ["Engine Programmer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/shape-shooter"
+            }
+        },
+        {
+            "name": "Space FPS",
+            "className": "space-fps",
+            "platforms": "Windows",
+            "description": "A first-person-shooter designed to showcase Tech Art concepts.",
+            "tools": ["Unreal Engine 4", "C++", "Blueprints"],
+            "features": [
+                "Level Streaming",
+                "LODs",
+                "HLODs",
+                "Material Optimization",
+                "Original Soundtrack"
+            ],
+            "contributors": ["Solo Project"],
+            "role": ["Solo Developer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/space-fps"
+            }
+        },
+        {
             "name": "Trealthy",
             "className": "trealthy",
             "platforms": "Windows",
@@ -106,17 +147,17 @@
             }
         },
         {
-            "name": "Checkers",
-            "className": "checkers",
+            "name": "Hyper Hacker",
+            "className": "hyper-hacker",
             "platforms": "Web App",
-            "description": "Two Player Checkers built for the web.",
-            "tools": ["HTML5", "CSS3", "Vanilla JavaScript"],
-            "features": ["Smooth CSS Transitions", "Mobile Friendly"],
-            "contributors": ["Solo Project"],
-            "role": ["Lead Developer"],
+            "description": "A web hacking game.",
+            "tools": ["Node.js", "MongoDB", "Redis", "Express", "React", "Three.js"],
+            "features": ["User Account System", "Leaderboard", "MVC Architecture", "WebVR"],
+            "contributors": ["Emily Turner"],
+            "role": ["Full Stack Developer"],
             "link": {
-                "content": "Try it out",
-                "href": "https://people.rit.edu/djs5435/230/project2/"
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/hyper-hacker"
             }
         },
         {

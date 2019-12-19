@@ -18,7 +18,7 @@
                 "main": "s gamepad",
                 "inline": []
             },
-            "description": "I am a fantastic game developer with expertise in Unity and Unreal Engine 4, deep knowledge of autonomous agents, Monogame, SFML, OpenGL, DirectX, and HLSL."
+            "description": "I am a fantastic game developer and have experience with Unity, Unreal Engine 4, Game Engine Programming, DirectX, HLSL, and OpenGL."
         },
         {
             "name": "Web Development",
@@ -26,7 +26,7 @@
                 "main": "s code",
                 "inline": ["b html5", "b css3", "b js"]
             },
-            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me. <br /> Pixi.js, Three.js, GSAP, Node.js, modern JavaScript features? No problem."
+            "description": "I'm great with HTML{0}, CSS{1}, and responsive design. Plus, I can handle any {2} you throw at me. Pixi.js, Three.js, GSAP, Node.js, modern JavaScript features? No problem."
         },
         {
             "name": "Miscellaneous",
