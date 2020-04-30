@@ -1,10 +1,12 @@
 let viewingNav = false;
 let splash;
+let lastTime = 0;
+let emitter = null;
 const data = {
-    skills: "data/skills.json",
-    projects: "data/projects.json"
+    skills: 'data/skills.json',
+    projects: 'data/projects.json',
 };
-const xmlns = "http://www.w3.org/2000/svg";
+const xmlns = 'http://www.w3.org/2000/svg';
 
 /**
  * Set the children's background color based on the css variable provided
@@ -19,8 +21,8 @@ function setChildrenBGColor(parent, colorVar) {
     }
 }
 
-window.onload = function(e) {
-    splash = document.querySelector("#splash");
+window.onload = function (e) {
+    splash = document.querySelector('#splash');
     setupNav();
     generateSplash();
     generateSkills();
@@ -28,27 +30,27 @@ window.onload = function(e) {
 };
 
 function setupNav() {
-    const burger = document.querySelector(".hamburger");
-    const navWindow = document.querySelector("nav > div:nth-child(2)");
+    const burger = document.querySelector('.hamburger');
+    const navWindow = document.querySelector('nav > div:nth-child(2)');
 
     //Hamburger menu hover style
-    burger.onpointerover = function(e) {
-        setChildrenBGColor(this, "--secondary-color");
+    burger.onpointerover = function (e) {
+        setChildrenBGColor(this, '--secondary-color');
     };
-    burger.onpointerleave = function(e) {
-        setChildrenBGColor(this, "--tertiary-color");
+    burger.onpointerleave = function (e) {
+        setChildrenBGColor(this, '--tertiary-color');
     };
     //Activate nav menu when clicked
-    burger.onclick = e => {
-        navWindow.style.left = "-20%";
-        setTimeout(function() {
+    burger.onclick = (e) => {
+        navWindow.style.left = '-20%';
+        setTimeout(function () {
             viewingNav = true;
         }, 1000);
     };
     //Hide nav menu
-    window.onclick = function(e) {
+    window.onclick = function (e) {
         if (viewingNav) {
-            navWindow.style.left = "-100%";
+            navWindow.style.left = '-100%';
             viewingNav = false;
         }
     };
@@ -57,92 +59,68 @@ function setupNav() {
 /**
  * Generate the splash screen using PIXI
  */
-function generateSplash() {
+async function generateSplash() {
+    const res = await fetch('/data/emitter.json');
+    const emitterSettings = await res.json();
+
     let app = new PIXI.Application({
         width: splash.clientWidth,
         height: splash.clientHeight,
-        transparent: true
+        transparent: true,
     });
+
+    // Adjust colors to match site theme
+    const docStyle = getComputedStyle(document.documentElement);
+    const rawColors = [
+        docStyle.getPropertyValue('--primary-color').trim(),
+        docStyle.getPropertyValue('--secondary-color').trim(),
+        docStyle.getPropertyValue('--tertiary-color').trim(),
+    ];
+    emitterSettings.color = {
+        list: rawColors.map((rawColor, i) => ({
+            value: rawColor,
+            time: i / (rawColors.length - 1),
+        })),
+    };
+
+    // Create particle system for splash section
+    emitter = new PIXI.particles.Emitter(
+        app.stage,
+        [PIXI.Texture.fromImage('/data/particle.png')],
+        emitterSettings
+    );
+    // Fit to screen
+    emitter.spawnPos = {
+        x: splash.clientWidth / 2,
+        y: splash.clientHeight / 2,
+    };
+
+    emitter.emit = true;
+
     splash.appendChild(app.view);
 
-    const CIRCLE_COUNT = 100;
-    const SPEED = 50;
-    let docStyle = getComputedStyle(document.documentElement);
-    const rawColors = [
-        docStyle.getPropertyValue("--primary-color"),
-        docStyle.getPropertyValue("--secondary-color"),
-        docStyle.getPropertyValue("--tertiary-color")
-    ];
-    const hexColors = rawColors.map(color => {
-        return color.replace("#", "0x");
-    });
-    let radiusRange = { min: 1, max: 5 };
-
-    for (let i = 0; i < CIRCLE_COUNT; i++) {
-        let circle = new PIXI.Graphics();
-        let color = hexColors[parseInt(Math.random() * hexColors.length)];
-        circle.beginFill(color);
-        circle.drawCircle(
-            0,
-            0,
-            radiusRange.min +
-                Math.random() * (radiusRange.max - radiusRange.min)
-        );
-        circle.endFill();
-        circle.cacheAsBitmap = true;
-        circle.position = {
-            x: Math.random() * splash.clientWidth,
-            y: Math.random() * splash.clientHeight
-        };
-        circle.startY = circle.y;
-        circle.seed = Math.random() * 1000;
-        app.stage.addChild(circle);
-    }
-
-    app.ticker.add(function() {
-        let viewRect = {
-            left: 0,
-            top: 0,
-            width: window.innerWidth,
-            height: window.innerHeight
-        };
-        let canvasRect = splash.getBoundingClientRect();
-        let timestamp = app.ticker.lastTime;
-        let dt = 1 / app.ticker.FPS;
-        //See if the canvas is in view before updating
-
-        if (
-            canvasRect.top < viewRect.top + viewRect.height &&
-            canvasRect.top + canvasRect.height > viewRect.top
-        ) {
-            if (dt > 1 / 6) dt = 1 / 6;
-            for (let child of app.stage.children) {
-                child.x += SPEED * dt;
-                child.y =
-                    child.startY +
-                    (Math.sin(child.seed + timestamp / 1000) * SPEED) / 2;
-                let r = child.width / 2;
-                if (child.x > app.renderer.width + r) {
-                    child.x = -r;
-                }
-            }
-        }
-    });
+    // Particle Update
+    requestAnimationFrame(animate);
 
     //Handle window resizing
-    window.addEventListener("resize", function(e) {
+    window.addEventListener('resize', function (e) {
         app.renderer.resize(splash.clientWidth, splash.clientHeight);
-        for (let child of app.stage.children) {
-            child.position = {
-                x: Math.random() * splash.clientWidth,
-                y: Math.random() * splash.clientHeight
-            };
-        }
+        emitter.spawnPos = {
+            x: splash.clientWidth / 2,
+            y: splash.clientHeight / 2,
+        };
     });
+}
 
-    //Blur filter
-    let blur = new PIXI.filters.BlurFilter(2);
-    app.stage.filters = [blur];
+function animate(timestamp) {
+    let dt = 0;
+    if (lastTime) {
+        dt = timestamp - lastTime;
+    }
+    emitter.update(dt / 1000);
+
+    lastTime = timestamp;
+    requestAnimationFrame(animate);
 }
 
 /**
@@ -151,7 +129,7 @@ function generateSplash() {
 function generateSkills() {
     //Get the json file
     let skillRequest = new XMLHttpRequest();
-    skillRequest.onreadystatechange = function() {
+    skillRequest.onreadystatechange = function () {
         //If the request is done
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             let skillInfo = JSON.parse(this.responseText);
@@ -160,12 +138,12 @@ function generateSkills() {
             skillHolder.innerHTML = `<h2>${skillInfo.header}</h2>`;
             //Generate each skill
             for (let skill of skillInfo.skills) {
-                let div = document.createElement("div");
+                let div = document.createElement('div');
                 div.className = skillInfo.skillClass;
-                let h3 = document.createElement("h3");
+                let h3 = document.createElement('h3');
                 h3.innerText = skill.name;
-                let mainIcon = document.createElement("i");
-                mainIcon.className = parseIcon(skill.icons.main) + " fa-4x";
+                let mainIcon = document.createElement('i');
+                mainIcon.className = parseIcon(skill.icons.main) + ' fa-4x';
                 for (let i = 0; i < skill.icons.inline.length; i++) {
                     let icon = `<i class="${parseIcon(
                         skill.icons.inline[i]
@@ -175,7 +153,7 @@ function generateSkills() {
                         icon
                     );
                 }
-                let description = document.createElement("p");
+                let description = document.createElement('p');
                 description.innerHTML = skill.description;
                 div.appendChild(h3);
                 div.appendChild(mainIcon);
@@ -184,7 +162,7 @@ function generateSkills() {
             }
         }
     };
-    skillRequest.open("GET", data.skills);
+    skillRequest.open('GET', data.skills);
     skillRequest.send();
 }
 
@@ -193,7 +171,7 @@ function generateSkills() {
  */
 function generateProjects() {
     let pReq = new XMLHttpRequest();
-    pReq.onreadystatechange = function() {
+    pReq.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             const projectInfo = JSON.parse(this.responseText);
             //Convert abbreviated icon classes to full ones
@@ -205,40 +183,45 @@ function generateProjects() {
             let container = document.querySelector(projectInfo.containerQuery);
 
             let toProjectSectionMarkup = (iconClass, iconName, items) => {
-                return (
-                `<div>
-                    <h3>${iconName} <i class="${iconClass} ${projectInfo.iconSize}"></i></h3>
+                return `<div>
+                    <h3>${iconName} <i class="${iconClass} ${
+                    projectInfo.iconSize
+                }"></i></h3>
                     <div>
-                        ${items.map(item => `<p>${item}</p>`).join("")}
+                        ${items.map((item) => `<p>${item}</p>`).join('')}
                     </div>
                 </div>
-                `
-                );
+                `;
             };
 
             projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
             let header = `<h2>${projectInfo.header}</h2>`;
-            let pDiv = "";
+            let pDiv = '';
             for (let project of projectInfo.projects) {
-                pDiv += `<div class="${projectInfo.class} ${project.className} fade-in hidden">
+                pDiv += `<div class="${projectInfo.class} ${
+                    project.className
+                } fade-in hidden">
                     <div>
                         <h3>${project.name}</h3>
                         <p>${project.platforms}</p>
                         <p>${project.description}</p>
                     </div>
                     ${Object.keys(projectInfo.icon)
-                        .map(key =>
+                        .map((key) =>
                             toProjectSectionMarkup(
                                 projectInfo.icon[key],
                                 key[0].toUpperCase() + key.substring(1),
                                 project[key]
                             )
                         )
-                        .join("")}
-                    ${project.link.content != "" ? `
+                        .join('')}
+                    ${
+                        project.link.content != ''
+                            ? `
                     <div class="learn-more">
                         <a href="${project.link.href}">${project.link.content}</a> 
-                    </div>` : ""
+                    </div>`
+                            : ''
                     }                   
                 </div>
                 `;
@@ -248,29 +231,30 @@ function generateProjects() {
             setupAnimations(); // We set up animations after projects have loaded into the dom
         }
     };
-    pReq.open("GET", data.projects);
+    pReq.open('GET', data.projects);
     pReq.send();
 }
 
 /**
  * Sets up the animations that should occur when they are scrolled into view
  */
-function setupAnimations()
-{
-    let animatedElems = document.querySelectorAll(".fade-in");
+function setupAnimations() {
+    let animatedElems = document.querySelectorAll('.fade-in');
 
-    let scrollHandler = function(e){
-        for (let animatedElem of animatedElems){
-            if (animatedElem.className.includes("active"))
-                continue;
+    let scrollHandler = function (e) {
+        for (let animatedElem of animatedElems) {
+            if (animatedElem.className.includes('active')) continue;
             let rect = animatedElem.getBoundingClientRect();
-            if (rect.top < window.innerHeight){
-                animatedElem.className = animatedElem.className.replace("hidden", "active");
+            if (rect.top < window.innerHeight) {
+                animatedElem.className = animatedElem.className.replace(
+                    'hidden',
+                    'active'
+                );
             }
         }
-    }
-    window.addEventListener("scroll", scrollHandler);
-    window.addEventListener("resize", scrollHandler);
+    };
+    window.addEventListener('scroll', scrollHandler);
+    window.addEventListener('resize', scrollHandler);
 }
 
 /**
@@ -280,8 +264,8 @@ function setupAnimations()
  * @example let fullIcon = parseIcon("b html5");//fullIcon equals "fab fa-html5"
  */
 function parseIcon(input) {
-    input = "fa" + input;
-    input = input.replace(" ", " fa-");
+    input = 'fa' + input;
+    input = input.replace(' ', ' fa-');
     return input;
 }
 
@@ -291,5 +275,5 @@ function parseIcon(input) {
  * @example let size = parseIconSize("4x"); //size equals "fa-4x"
  */
 function parseIconSize(input) {
-    return "fa-" + input;
+    return 'fa-' + input;
 }
