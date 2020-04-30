@@ -126,81 +126,64 @@ function animate(timestamp) {
 /**
  * Generate the skills markup using the skill info from the data object
  */
-function generateSkills() {
-    //Get the json file
-    let skillRequest = new XMLHttpRequest();
-    skillRequest.onreadystatechange = function () {
-        //If the request is done
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            let skillInfo = JSON.parse(this.responseText);
-            let skillHolder = document.querySelector(skillInfo.containerQuery);
-            //Header h2
-            skillHolder.innerHTML = `<h2>${skillInfo.header}</h2>`;
-            //Generate each skill
-            for (let skill of skillInfo.skills) {
-                let div = document.createElement('div');
-                div.className = skillInfo.skillClass;
-                let h3 = document.createElement('h3');
-                h3.innerText = skill.name;
-                let mainIcon = document.createElement('i');
-                mainIcon.className = parseIcon(skill.icons.main) + ' fa-4x';
-                for (let i = 0; i < skill.icons.inline.length; i++) {
-                    let icon = `<i class="${parseIcon(
-                        skill.icons.inline[i]
-                    )}"></i>`;
-                    skill.description = skill.description.replace(
-                        `{${i}}`,
-                        icon
-                    );
-                }
-                let description = document.createElement('p');
-                description.innerHTML = skill.description;
-                div.appendChild(h3);
-                div.appendChild(mainIcon);
-                div.appendChild(description);
-                skillHolder.appendChild(div);
-            }
+async function generateSkills() {
+    const res = await fetch(data.skills);
+    const skillInfo = await res.json();
+    let skillHolder = document.querySelector(skillInfo.containerQuery);
+    //Header h2
+    skillHolder.innerHTML = `<h2>${skillInfo.header}</h2>`;
+    //Generate each skill
+    for (let skill of skillInfo.skills) {
+        let div = document.createElement('div');
+        div.className = skillInfo.skillClass;
+        let h3 = document.createElement('h3');
+        h3.innerText = skill.name;
+        let mainIcon = document.createElement('i');
+        mainIcon.className = parseIcon(skill.icons.main) + ' fa-4x';
+        for (let i = 0; i < skill.icons.inline.length; i++) {
+            let icon = `<i class="${parseIcon(skill.icons.inline[i])}"></i>`;
+            skill.description = skill.description.replace(`{${i}}`, icon);
         }
-    };
-    skillRequest.open('GET', data.skills);
-    skillRequest.send();
+        let description = document.createElement('p');
+        description.innerHTML = skill.description;
+        div.appendChild(h3);
+        div.appendChild(mainIcon);
+        div.appendChild(description);
+        skillHolder.appendChild(div);
+    }
 }
 
 /**
  * Generate the project markup using the data from the data object
  */
-function generateProjects() {
-    let pReq = new XMLHttpRequest();
-    pReq.onreadystatechange = function () {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            const projectInfo = JSON.parse(this.responseText);
-            //Convert abbreviated icon classes to full ones
-            for (let iconName in projectInfo.icon) {
-                projectInfo.icon[iconName] = parseIcon(
-                    projectInfo.icon[iconName]
-                );
-            }
-            let container = document.querySelector(projectInfo.containerQuery);
+async function generateProjects() {
+    const res = await fetch(data.projects);
+    const projectInfo = await res.json();
+    //Convert abbreviated icon classes to full ones
+    for (let iconName in projectInfo.icon) {
+        projectInfo.icon[iconName] = parseIcon(projectInfo.icon[iconName]);
+    }
+    let container = document.querySelector(projectInfo.containerQuery);
 
-            let toProjectSectionMarkup = (iconClass, iconName, items) => {
-                return `<div>
+    let toProjectSectionMarkup = (iconClass, iconName, items) => {
+        return `<div>
                     <h3>${iconName} <i class="${iconClass} ${
-                    projectInfo.iconSize
-                }"></i></h3>
+            projectInfo.iconSize
+        }"></i></h3>
                     <div>
                         ${items.map((item) => `<p>${item}</p>`).join('')}
                     </div>
                 </div>
                 `;
-            };
+    };
 
-            projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
-            let header = `<h2>${projectInfo.header}</h2>`;
-            let pDiv = '';
-            for (let project of projectInfo.projects) {
-                pDiv += `<div class="${projectInfo.class} ${
-                    project.className
-                } fade-in hidden">
+    projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
+    let header = `<h2>${projectInfo.header}</h2>`;
+    let pDiv = '';
+    for (let project of projectInfo.projects) {
+        pDiv += `<div class="${projectInfo.class} ${
+            project.className
+        } fade-in hidden">
                     <div>
                         <h3>${project.name}</h3>
                         <p>${project.platforms}</p>
@@ -225,14 +208,10 @@ function generateProjects() {
                     }                   
                 </div>
                 `;
-            }
-            let markup = header + pDiv;
-            container.innerHTML = markup;
-            setupAnimations(); // We set up animations after projects have loaded into the dom
-        }
-    };
-    pReq.open('GET', data.projects);
-    pReq.send();
+    }
+    let markup = header + pDiv;
+    container.innerHTML = markup;
+    setupAnimations(); // We set up animations after projects have loaded into the dom
 }
 
 /**
