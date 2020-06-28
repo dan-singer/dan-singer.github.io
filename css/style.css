@@ -159,6 +159,9 @@ nav a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#splash div:first-child h1 {
+    margin-bottom: 10px;
+}
 #splash div:first-child h3 {
     color: var(--secondary-color);
 }
