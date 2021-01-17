@@ -167,9 +167,8 @@ async function generateProjects() {
 
     let toProjectSectionMarkup = (iconClass, iconName, items) => {
         return `<div>
-                    <h3>${iconName} <i class="${iconClass} ${
-            projectInfo.iconSize
-        }"></i></h3>
+                    <h3>${iconName} <i class="${iconClass} ${projectInfo.iconSize
+            }"></i></h3>
                     <div>
                         ${items.map((item) => `<p>${item}</p>`).join('')}
                     </div>
@@ -178,39 +177,36 @@ async function generateProjects() {
     };
 
     projectInfo.iconSize = parseIconSize(projectInfo.iconSize);
-    let header = `<h2>${projectInfo.header}</h2>`;
+    // let header = `<h2>${projectInfo.header}</h2>`;
     let pDiv = '';
     for (let project of projectInfo.projects) {
-        pDiv += `<div class="${projectInfo.class} ${
-            project.className
-        } fade-in hidden">
+        pDiv += `<div class="${projectInfo.class} ${project.className
+            } fade-in hidden">
                     <div>
                         <h3>${project.name}</h3>
                         <p>${project.platforms}</p>
                         <p>${project.description}</p>
                     </div>
                     ${Object.keys(projectInfo.icon)
-                        .map((key) =>
-                            toProjectSectionMarkup(
-                                projectInfo.icon[key],
-                                key[0].toUpperCase() + key.substring(1),
-                                project[key]
-                            )
-                        )
-                        .join('')}
-                    ${
-                        project.link.content != ''
-                            ? `
+                .map((key) =>
+                    toProjectSectionMarkup(
+                        projectInfo.icon[key],
+                        key[0].toUpperCase() + key.substring(1),
+                        project[key]
+                    )
+                )
+                .join('')}
+                    ${project.link.content != ''
+                ? `
                     <div class="learn-more">
                         <a href="${project.link.href}">${project.link.content}</a> 
                     </div>`
-                            : ''
-                    }                   
+                : ''
+            }                   
                 </div>
                 `;
     }
-    let markup = header + pDiv;
-    container.innerHTML = markup;
+    container.innerHTML = pDiv;
     setupAnimations(); // We set up animations after projects have loaded into the dom
 }
 

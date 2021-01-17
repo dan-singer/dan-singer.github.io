@@ -2,11 +2,11 @@
 
 /*CSS Properties*/
 :root {
-    --primary-color: #c46d60;
+    --primary-color: #C2EFB3;
     --secondary-color: #c5b15f;
     --tertiary-color: #79af59;
-    --bg: #e2e7ea;
-    --bg2: #ecf1f3;
+    --bg: #463F3A;
+    --bg2: #463F3A;
     --bg-trans: #e2e7ea88;
     --dark: #000000;
     margin: 0;
@@ -37,7 +37,7 @@ body {
     padding: 0;
     top: 0px;
     background-color: var(--bg);
-    font-family: "Open Sans";
+    font-family: "Montserrat";
     color: var(--primary-color);
 }
 
