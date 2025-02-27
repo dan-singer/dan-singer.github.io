@@ -401,6 +401,14 @@ nav a:hover {
     --secondary-color: rgb(124, 121, 121);
     --tertiary-color: rgb(39, 243, 216);
 }
+.fancy-pong {
+    background-image: url("../media/fancy-pong/fancy-pong.png");
+    background-position: center bottom;
+    background-size: contain;
+    --primary-color: white;
+    --secondary-color: rgb(65, 107, 192);
+    --tertiary-color: rgb(217, 228, 227);
+}
 /*******************************/
 
 /*Contact*/

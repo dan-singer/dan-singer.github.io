@@ -15,6 +15,24 @@
     "iconSize": "1x",
     "projects": [
         {
+            "name": "Fancy Pong",
+            "className": "fancy-pong",
+            "platforms": "Windows",
+            "description": "Pong with fancy shader effects along with a YouTube tutorial series",
+            "tools": ["Godot", "GdScript"],
+            "features": [
+                "<a href='https://www.youtube.com/watch?v=QxK2Vy0yrjY&t=26s'>YouTube Tutorial Series</a>",
+                "Fragment Shaders",
+                "Data-Driven Design"
+            ],
+            "contributors": ["Solo Project"],
+            "role": ["Gameplay Programmer"],
+            "link": {
+                "content": "View the code",
+                "href": "https://github.com/dan-singer/godot-pong"
+            }
+        },
+        {
             "name": "Shape Shooter",
             "className": "shape-shooter",
             "platforms": "Windows",
